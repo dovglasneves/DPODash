@@ -1,0 +1,16 @@
+program DPO21;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  uLogon in 'uLogon.pas' {frmLogon},
+  uMenu in 'uMenu.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TfrmLogon, frmLogon);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

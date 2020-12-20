@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/12/15 06:33:06.000.142,=C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/16 20:06:40.000.919,=C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/16 20:07:15.000.260,C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=E:\Coding\Delphi\DPO 2.1 FMX\uLogon.pas</Transaction>
+    <Transaction>2020/12/16 20:07:15.000.260,C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.fmx=E:\Coding\Delphi\DPO 2.1 FMX\uLogon.fmx</Transaction>
+    <Transaction>2020/12/16 20:07:21.000.120,C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=E:\Coding\Delphi\DPO 2.1 FMX\DPO21.dproj</Transaction>
+    <Transaction>2020/12/17 19:52:14.000.470,=E:\Coding\Delphi\DPO 2.1 FMX\Unit1.pas</Transaction>
+    <Transaction>2020/12/17 19:52:28.000.950,E:\Coding\Delphi\DPO 2.1 FMX\Unit1.pas=E:\Coding\Delphi\DPO 2.1 FMX\uMenu.pas</Transaction>
+    <Transaction>2020/12/17 19:52:28.000.950,E:\Coding\Delphi\DPO 2.1 FMX\Unit1.fmx=E:\Coding\Delphi\DPO 2.1 FMX\uMenu.fmx</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
