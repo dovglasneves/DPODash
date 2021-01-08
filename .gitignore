@@ -2,3 +2,5 @@
 *.psd
 *.exe
 *.dcu
+Win32/Debug/index.html
+Win32/Debug/js/Chart.min.js

@@ -11,7 +11,7 @@ uses
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.ObjectScope, FMX.ListView,
   FMX.Ani, FMX.WebBrowser, System.iOUtils, Math,
   {$IFDEF MSWINDOWS}
-  System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts
+  System.Win.Registry, FMX.Edit, Data.Bind.DBScope
   {$ENDIF};
 
 type
@@ -83,6 +83,7 @@ type
     PrototypeBindSource1: TPrototypeBindSource;
     BindingsList1: TBindingsList;
     BindSourceDB1: TBindSourceDB;
+    LinkListControlToField1: TLinkListControlToField;
     rectSearch: TRectangle;
     edtSearch: TEdit;
     rectGraph2: TRectangle;
@@ -91,15 +92,6 @@ type
     rectData: TRectangle;
     sbCloseBtn: TSpeedButton;
     lbDados: TLabel;
-    Layout1: TLayout;
-    Layout2: TLayout;
-    Layout3: TLayout;
-    Layout4: TLayout;
-    rectClientesList: TRectangle;
-    Text1: TText;
-    ListView1: TListView;
-    LinkListControlToField1: TLinkListControlToField;
-    lblListTitleCli: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);

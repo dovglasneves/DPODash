@@ -1,0 +1,23 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 304
+  Width = 398
+  object QueryDef: TFDQuery
+    Left = 32
+    Top = 128
+  end
+  object FDConn: TFDConnection
+    Params.Strings = (
+      'Database=dpo'
+      'User_Name=root'
+      'Server=localhost'
+      'CharacterSet=utf8'
+      'DriverID=MySQL')
+    Left = 32
+    Top = 16
+  end
+  object MySQLDriverLink: TFDPhysMySQLDriverLink
+    Left = 32
+    Top = 72
+  end
+end

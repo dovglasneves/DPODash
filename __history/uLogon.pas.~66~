@@ -129,6 +129,8 @@ try
         lbInitial.Text := InitialL;
       end;
       frmMain.Show;
+      Application.FormDestroyed(frmLogon);
+      frmLogon.Close;
     end else
     begin
       MessageDlg('Login ou senha incorreta! Tente novamente.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
@@ -144,8 +146,6 @@ try
     end;
 finally
   FDConnection.Connected := False;
-  Application.FormDestroyed(frmLogon);
-  frmLogon.Close;
 end;
 end;
 

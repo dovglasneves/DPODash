@@ -11,7 +11,7 @@ uses
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.ObjectScope, FMX.ListView,
   FMX.Ani, FMX.WebBrowser, System.iOUtils, Math,
   {$IFDEF MSWINDOWS}
-  System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts
+  System.Win.Registry, FMX.Edit, Data.Bind.DBScope
   {$ENDIF};
 
 type
@@ -83,6 +83,7 @@ type
     PrototypeBindSource1: TPrototypeBindSource;
     BindingsList1: TBindingsList;
     BindSourceDB1: TBindSourceDB;
+    LinkListControlToField1: TLinkListControlToField;
     rectSearch: TRectangle;
     edtSearch: TEdit;
     rectGraph2: TRectangle;
@@ -91,15 +92,6 @@ type
     rectData: TRectangle;
     sbCloseBtn: TSpeedButton;
     lbDados: TLabel;
-    Layout1: TLayout;
-    Layout2: TLayout;
-    Layout3: TLayout;
-    Layout4: TLayout;
-    rectClientesList: TRectangle;
-    Text1: TText;
-    ListView1: TListView;
-    LinkListControlToField1: TLinkListControlToField;
-    lblListTitleCli: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -128,7 +120,6 @@ type
     procedure rectTitleClick(Sender: TObject);
     procedure lbFoorterGraph1Click(Sender: TObject);
     procedure lbFooterGraph2Click(Sender: TObject);
-    procedure FormDeactivate(Sender: TObject);
   private
     { Private declarations }
     procedure ResetAFocus(Sender: TObject);
@@ -164,16 +155,11 @@ begin
 Application.Terminate;
 end;
 
-procedure TfrmMain.FormDeactivate(Sender: TObject);
-begin
-ResetAFocus(Sender);
-end;
-
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
 frmMain.Width := 980;
 frmMain.Height := 680;
-rectGraph1.ChartCircular('', 63, $FFE04242);
+rectGraph1.ChartCircular('', 60, $FFE04242);
 rectGraph2.ChartBarHorizontal('', '60:Jan;45:Fev;23:Mar;50:Abr;20:Mai;35:Jun;'
 +'12:Jul;65:Ago;56:Set;34:Out;35:Nov;50:Dez', $FFE04242);
 end;
@@ -256,6 +242,7 @@ if (Sender is TSpeedButton) then
   begin
     sbDash.IsPressed := False;
     sbCli.IsPressed := False;
+    sbUsername.IsPressed := False;
     sbProd.IsPressed := False;
     sbNotas.IsPressed := False;
     sbConPag.IsPressed := False;

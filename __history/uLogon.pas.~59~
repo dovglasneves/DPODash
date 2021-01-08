@@ -34,6 +34,7 @@ type
     Query1prioridade_acesso: TIntegerField;
     Query1nome_user: TWideStringField;
     Query1email_user: TWideStringField;
+    WebBrowser1: TWebBrowser;
     procedure sbQuitClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbLoginClick(Sender: TObject);
@@ -90,63 +91,58 @@ var
 InitialL, User, Mail: string;
 SizeDiff: Single;
 begin
-try
-  FDConnection.Connected := True;
-  if (Trim(edtLogin.Text)=EmptyStr) or (Trim(edtPass.Text)=EmptyStr) then
+if (Trim(edtLogin.Text)=EmptyStr) or (Trim(edtPass.Text)=EmptyStr) then
+  begin
+    MessageDlg('Os campos login e/ou senha não podem estar vazios.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
+    Abort;
+  end;
+Login := edtLogin.Text;
+HashMD5 := THashMD5.GetHashString(edtPass.Text);
+Query1.SQL.Clear;
+Query1.SQL.Text := 'select * from dpousers where usuario=' +QuotedStr(Login) +' and senha=' +QuotedStr(HashMD5);
+Query1.Open;
+if not Query1.Eof then
+  begin
+    User := Query1.FieldByName('nome_user').Value;
+    Mail := Query1.FieldByName('email_user').Value;
+    AcessLevel := Query1.FieldByName('prioridade_acesso').Value;
+    with frmMain do
     begin
-      MessageDlg('Os campos login e/ou senha não podem estar vazios.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
-      Abort;
+      sbUsername.Text := User;
+      lbSize.Text := User;
+      lbNomeP.Text := User;
+      lbMail.Text := Mail;
+        case AcessLevel of
+          0: lbAcessLevel.Text := 'Acesso Restrito';
+          1: lbAcessLevel.Text := 'Administrador';
+          2: lbAcessLevel.Text := 'Usuário';
+        end;
+      if lbMail.Width > lbNomeP.Width then
+        begin
+          SizeDiff := lbMail.Width+20;
+          rectPopupExit.Width := SizeDiff;
+          rectPopupExit.Position.X := frmMain.Width-(SizeDiff+40);
+        end;
+      sbUsername.Width := lbSize.Width + 29;
+      InitialL := Copy(User,0,1);
+      lbInitial.Text := InitialL;
     end;
-  Login := edtLogin.Text;
-  HashMD5 := THashMD5.GetHashString(edtPass.Text);
-  Query1.SQL.Clear;
-  Query1.SQL.Text := 'select * from dpousers where usuario=' +QuotedStr(Login) +' and senha=' +QuotedStr(HashMD5);
-  Query1.Open;
-  if not Query1.Eof then
+    frmMain.Show;
+    Application.FormDestroyed(frmLogon);
+    frmLogon.Close;
+  end else
+  begin
+    MessageDlg('Login ou senha incorreta! Tente novamente.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
+    edtLogin.Text := '';
+    edtPass.Text := '';
+    edtLogin.SetFocus;
+    Attempts:=Attempts+1;
+    if Attempts >= 3 then
     begin
-      User := Query1.FieldByName('nome_user').Value;
-      Mail := Query1.FieldByName('email_user').Value;
-      AcessLevel := Query1.FieldByName('prioridade_acesso').Value;
-      with frmMain do
-      begin
-        sbUsername.Text := User;
-        lbSize.Text := User;
-        lbNomeP.Text := User;
-        lbMail.Text := Mail;
-          case AcessLevel of
-            0: lbAcessLevel.Text := 'Acesso Restrito';
-            1: lbAcessLevel.Text := 'Administrador';
-            2: lbAcessLevel.Text := 'Usuário';
-          end;
-        if lbMail.Width > lbNomeP.Width then
-          begin
-            SizeDiff := lbMail.Width+20;
-            rectPopupExit.Width := SizeDiff;
-            rectPopupExit.Position.X := frmMain.Width-(SizeDiff+40);
-          end;
-        sbUsername.Width := lbSize.Width + 29;
-        InitialL := Copy(User,0,1);
-        lbInitial.Text := InitialL;
-      end;
-      frmMain.Show;
-    end else
-    begin
-      MessageDlg('Login ou senha incorreta! Tente novamente.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
-      edtLogin.Text := '';
-      edtPass.Text := '';
-      edtLogin.SetFocus;
-      Attempts:=Attempts+1;
-      if Attempts >= 3 then
-      begin
-        MessageDlg('Caso não se lembre da senha entre em contato com o admin do sistema.', TMsgDlgType.mtWarning, [TMsgDlgBtn.mbOK], 0);
-        Attempts := 0;
-      end;
+      MessageDlg('Caso não se lembre da senha entre em contato com o admin do sistema.', TMsgDlgType.mtWarning, [TMsgDlgBtn.mbOK], 0);
+      Attempts := 0;
     end;
-finally
-  FDConnection.Connected := False;
-  Application.FormDestroyed(frmLogon);
-  frmLogon.Close;
-end;
+  end;
 end;
 
 procedure TfrmLogon.sbQuitClick(Sender: TObject);

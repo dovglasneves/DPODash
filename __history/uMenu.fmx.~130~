@@ -441,7 +441,7 @@ object frmMain: TfrmMain
       Size.Width = 978.000000000000000000
       Size.Height = 537.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabPosition = None
       Sizes = (
@@ -463,7 +463,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -580,6 +580,7 @@ object frmMain: TfrmMain
               HeaderAppearanceClassName = 'TCustomizeItemObjects'
               FooterAppearanceClassName = 'TCustomizeItemObjects'
               Transparent = True
+              ItemIndex = 0
               ItemSpaces.Top = 5.000000000000000000
               Align = Top
               Margins.Left = 1.000000000000000000
@@ -695,7 +696,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -736,8 +737,8 @@ object frmMain: TfrmMain
             TabOrder = 1
           end
           object Layout2: TLayout
-            Align = Left
-            Position.X = 16.000000000000000000
+            Align = Right
+            Position.X = 496.000000000000000000
             Size.Width = 464.000000000000000000
             Size.Height = 537.000000000000000000
             Size.PlatformDefault = False
@@ -751,48 +752,28 @@ object frmMain: TfrmMain
               Stroke.Color = xFFE2E2E2
               XRadius = 15.000000000000000000
               YRadius = 15.000000000000000000
-              object ListView1: TListView
-                ItemAppearanceClassName = 'TListItemRightDetailAppearance'
-                ItemEditAppearanceClassName = 'TListItemRightDetailDeleteAppearance'
-                HeaderAppearanceClassName = 'TListHeaderObjects'
-                FooterAppearanceClassName = 'TListHeaderObjects'
-                ItemIndex = 0
+              object listClientes: TListView
+                ItemAppearanceClassName = 'TImageListItemBottomDetailAppearance'
+                ItemEditAppearanceClassName = 'TImageListItemBottomDetailShowCheckAppearance'
+                HeaderAppearanceClassName = 'TCustomizeItemObjects'
+                FooterAppearanceClassName = 'TCustomizeItemObjects'
+                ItemIndex = 1
                 Align = Client
-                Margins.Left = 5.000000000000000000
-                Margins.Top = 10.000000000000000000
-                Margins.Right = 5.000000000000000000
-                Margins.Bottom = 10.000000000000000000
-                Size.Width = 454.000000000000000000
-                Size.Height = 490.000000000000000000
+                Margins.Left = 7.000000000000000000
+                Margins.Top = 7.000000000000000000
+                Margins.Right = 7.000000000000000000
+                Margins.Bottom = 7.000000000000000000
+                Size.Width = 450.000000000000000000
+                Size.Height = 523.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                ItemAppearanceObjects.ItemObjects.Text.Font.StyleExt = {00070000000000000004000000}
-                ItemAppearanceObjects.ItemObjects.Text.Width = 250.000000000000000000
-                ItemAppearanceObjects.ItemObjects.Text.Height = 22.000000000000000000
-                ItemAppearanceObjects.ItemObjects.Detail.TextAlign = Leading
-                ItemAppearanceObjects.ItemObjects.Detail.Width = 250.000000000000000000
-                ItemAppearanceObjects.ItemObjects.Detail.Height = 22.000000000000000000
-                ItemAppearanceObjects.ItemObjects.Detail.PlaceOffset.X = -183.000000000000000000
-                ItemAppearanceObjects.ItemObjects.Detail.PlaceOffset.Y = 21.000000000000000000
-                CanSwipeDelete = False
-                ShowSelection = False
-                SearchAlwaysOnTop = False
-              end
-              object lblListTitleCli: TLabel
-                Align = Top
-                StyledSettings = [Family, FontColor]
-                Margins.Left = 15.000000000000000000
-                Margins.Top = 10.000000000000000000
-                Margins.Right = 15.000000000000000000
-                Position.X = 15.000000000000000000
-                Position.Y = 10.000000000000000000
-                Size.Width = 434.000000000000000000
-                Size.Height = 17.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Text = 'Clientes'
-                TabOrder = 1
+                ItemAppearance.HeaderHeight = 22
+                ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+                ItemAppearanceObjects.ItemObjects.Image.Visible = False
+                ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
+                ItemAppearanceObjects.HeaderObjects.Text.Width = 379.000000000000000000
+                ItemAppearanceObjects.HeaderObjects.Text.Height = 41.000000000000000000
+                ItemAppearanceObjects.FooterObjects.Text.Visible = False
               end
             end
           end
@@ -4009,10 +3990,6 @@ object frmMain: TfrmMain
       end
     end
   end
-  object Text1: TText
-    Position.X = 1024.000000000000000000
-    Position.Y = 312.000000000000000000
-  end
   object PrototypeBindSource1: TPrototypeBindSource
     AutoActivate = True
     AutoPost = False
@@ -4040,13 +4017,27 @@ object frmMain: TfrmMain
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
       FieldName = 'nome'
-      Control = ListView1
+      Control = Rect
       FillExpressions = <
         item
-          SourceMemberName = 'telefone'
+          SourceMemberName = 'cidade'
           ControlMemberName = 'Detail'
         end>
       FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'telefone'
+      Control = listClientes
+      FillExpressions = <
+        item
+          SourceMemberName = 'email'
+          ControlMemberName = 'Detail'
+        end>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'nome'
       FillBreakGroups = <>
     end
   end
