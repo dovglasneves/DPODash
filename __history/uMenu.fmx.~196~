@@ -440,7 +440,7 @@ object frmMain: TfrmMain
       Size.Width = 978.000000000000000000
       Size.Height = 537.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabPosition = None
       Sizes = (
@@ -462,7 +462,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -682,7 +682,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -821,7 +821,7 @@ object frmMain: TfrmMain
               Fill.Color = claWhite
               Margins.Left = 5.000000000000000000
               Size.Width = 475.000000000000000000
-              Size.Height = 344.000000000000000000
+              Size.Height = 296.000000000000000000
               Size.PlatformDefault = False
               Stroke.Color = xFFE2E2E2
               XRadius = 15.000000000000000000
@@ -830,10 +830,10 @@ object frmMain: TfrmMain
                 Align = Top
                 StyledSettings = [Family]
                 Margins.Left = 15.000000000000000000
-                Margins.Top = 20.000000000000000000
+                Margins.Top = 10.000000000000000000
                 Margins.Right = 15.000000000000000000
                 Position.X = 15.000000000000000000
-                Position.Y = 20.000000000000000000
+                Position.Y = 10.000000000000000000
                 Size.Width = 445.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
@@ -845,14 +845,13 @@ object frmMain: TfrmMain
               end
               object lblFirstN: TLabel
                 AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 23.000000000000000000
-                Position.Y = 57.000000000000000000
-                Size.Width = 35.000000000000000000
+                StyledSettings = [Size, Style]
+                Position.X = 26.000000000000000000
+                Position.Y = 41.000000000000000000
+                Size.Width = 34.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.FontColor = xFF6A6969
                 TextSettings.WordWrap = False
                 Text = 'NOME'
@@ -860,8 +859,8 @@ object frmMain: TfrmMain
               end
               object rectFirstN: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 17.000000000000000000
-                Position.Y = 72.000000000000000000
+                Position.X = 20.000000000000000000
+                Position.Y = 56.000000000000000000
                 Size.Width = 333.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -871,14 +870,13 @@ object frmMain: TfrmMain
               end
               object lblEndereco: TLabel
                 AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 23.000000000000000000
-                Position.Y = 106.000000000000000000
-                Size.Width = 61.000000000000000000
+                StyledSettings = [Size, Style]
+                Position.X = 26.000000000000000000
+                Position.Y = 90.000000000000000000
+                Size.Width = 60.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.FontColor = xFF6A6969
                 TextSettings.WordWrap = False
                 Text = 'ENDERE'#199'O'
@@ -886,8 +884,8 @@ object frmMain: TfrmMain
               end
               object rectEndereco: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 17.000000000000000000
-                Position.Y = 122.000000000000000000
+                Position.X = 20.000000000000000000
+                Position.Y = 106.000000000000000000
                 Size.Width = 437.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -898,8 +896,8 @@ object frmMain: TfrmMain
               object lblSexo: TLabel
                 AutoSize = True
                 StyledSettings = [Size, Style]
-                Position.X = 362.000000000000000000
-                Position.Y = 57.000000000000000000
+                Position.X = 365.000000000000000000
+                Position.Y = 41.000000000000000000
                 Size.Width = 29.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
@@ -911,8 +909,8 @@ object frmMain: TfrmMain
               end
               object rectSexo: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 357.000000000000000000
-                Position.Y = 72.000000000000000000
+                Position.X = 360.000000000000000000
+                Position.Y = 56.000000000000000000
                 Size.Width = 97.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -922,14 +920,13 @@ object frmMain: TfrmMain
               end
               object lblBairro: TLabel
                 AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 23.000000000000000000
-                Position.Y = 154.000000000000000000
-                Size.Width = 43.000000000000000000
+                StyledSettings = [Size, Style]
+                Position.X = 26.000000000000000000
+                Position.Y = 138.000000000000000000
+                Size.Width = 41.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.FontColor = xFF6A6969
                 TextSettings.WordWrap = False
                 Text = 'BAIRRO'
@@ -937,8 +934,8 @@ object frmMain: TfrmMain
               end
               object rectBairro: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 17.000000000000000000
-                Position.Y = 170.000000000000000000
+                Position.X = 20.000000000000000000
+                Position.Y = 154.000000000000000000
                 Size.Width = 189.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -948,14 +945,13 @@ object frmMain: TfrmMain
               end
               object lblCidade: TLabel
                 AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 221.000000000000000000
-                Position.Y = 154.000000000000000000
-                Size.Width = 42.000000000000000000
+                StyledSettings = [Size, Style]
+                Position.X = 224.000000000000000000
+                Position.Y = 138.000000000000000000
+                Size.Width = 41.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.FontColor = xFF6A6969
                 TextSettings.WordWrap = False
                 Text = 'CIDADE'
@@ -963,8 +959,8 @@ object frmMain: TfrmMain
               end
               object rectCidade: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 215.000000000000000000
-                Position.Y = 170.000000000000000000
+                Position.X = 218.000000000000000000
+                Position.Y = 154.000000000000000000
                 Size.Width = 179.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -974,14 +970,13 @@ object frmMain: TfrmMain
               end
               object lblUF: TLabel
                 AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 408.000000000000000000
-                Position.Y = 154.000000000000000000
+                StyledSettings = [Size, Style]
+                Position.X = 411.000000000000000000
+                Position.Y = 138.000000000000000000
                 Size.Width = 15.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.FontColor = xFF6A6969
                 TextSettings.WordWrap = False
                 Text = 'UF'
@@ -989,8 +984,8 @@ object frmMain: TfrmMain
               end
               object rectUF: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 403.000000000000000000
-                Position.Y = 170.000000000000000000
+                Position.X = 406.000000000000000000
+                Position.Y = 154.000000000000000000
                 Size.Width = 51.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -1001,8 +996,8 @@ object frmMain: TfrmMain
               object lblEmail: TLabel
                 AutoSize = True
                 StyledSettings = [Size, Style]
-                Position.X = 23.000000000000000000
-                Position.Y = 202.000000000000000000
+                Position.X = 26.000000000000000000
+                Position.Y = 186.000000000000000000
                 Size.Width = 38.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
@@ -1014,8 +1009,8 @@ object frmMain: TfrmMain
               end
               object rectEmail: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 17.000000000000000000
-                Position.Y = 218.000000000000000000
+                Position.X = 20.000000000000000000
+                Position.Y = 202.000000000000000000
                 Size.Width = 437.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -1026,8 +1021,8 @@ object frmMain: TfrmMain
               object lblTelComercial: TLabel
                 AutoSize = True
                 StyledSettings = [Size, Style]
-                Position.X = 23.000000000000000000
-                Position.Y = 250.000000000000000000
+                Position.X = 26.000000000000000000
+                Position.Y = 234.000000000000000000
                 Size.Width = 122.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
@@ -1039,8 +1034,8 @@ object frmMain: TfrmMain
               end
               object rectTelComercial: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 17.000000000000000000
-                Position.Y = 266.000000000000000000
+                Position.X = 20.000000000000000000
+                Position.Y = 250.000000000000000000
                 Size.Width = 189.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -1052,42 +1047,36 @@ object frmMain: TfrmMain
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 StyleLookup = 'transparentedit'
                 TabOrder = 17
-                MaxLength = 40
-                Position.X = 24.000000000000000000
-                Position.Y = 74.000000000000000000
+                Position.X = 27.000000000000000000
+                Position.Y = 58.000000000000000000
                 Size.Width = 320.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
-                OnExit = FormataCamposCliForm
               end
               object edtEndereco: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 StyleLookup = 'transparentedit'
                 TabOrder = 19
-                MaxLength = 40
-                Position.X = 24.000000000000000000
-                Position.Y = 124.000000000000000000
+                Position.X = 27.000000000000000000
+                Position.Y = 108.000000000000000000
                 Size.Width = 424.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
-                OnExit = FormataCamposCliForm
               end
               object edtBairro: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 StyleLookup = 'transparentedit'
                 TabOrder = 20
-                MaxLength = 20
-                Position.X = 24.000000000000000000
-                Position.Y = 172.000000000000000000
+                Position.X = 27.000000000000000000
+                Position.Y = 156.000000000000000000
                 Size.Width = 175.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
-                OnExit = FormataCamposCliForm
               end
               object rectCelular: TRectangle
                 Fill.Color = xFFF6F6F6
-                Position.X = 220.000000000000000000
-                Position.Y = 266.000000000000000000
+                Position.X = 223.000000000000000000
+                Position.Y = 250.000000000000000000
                 Size.Width = 189.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
@@ -1098,8 +1087,8 @@ object frmMain: TfrmMain
               object lblCelular: TLabel
                 AutoSize = True
                 StyledSettings = [Size, Style]
-                Position.X = 226.000000000000000000
-                Position.Y = 250.000000000000000000
+                Position.X = 229.000000000000000000
+                Position.Y = 234.000000000000000000
                 Size.Width = 119.000000000000000000
                 Size.Height = 15.000000000000000000
                 Size.PlatformDefault = False
@@ -1115,8 +1104,8 @@ object frmMain: TfrmMain
                   'F'
                   'N/A')
                 ItemIndex = 2
-                Position.X = 362.000000000000000000
-                Position.Y = 74.000000000000000000
+                Position.X = 365.000000000000000000
+                Position.Y = 58.000000000000000000
                 Size.Width = 88.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
@@ -1127,13 +1116,11 @@ object frmMain: TfrmMain
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 StyleLookup = 'transparentedit'
                 TabOrder = 21
-                MaxLength = 20
-                Position.X = 223.000000000000000000
-                Position.Y = 172.000000000000000000
+                Position.X = 226.000000000000000000
+                Position.Y = 156.000000000000000000
                 Size.Width = 166.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
-                OnExit = FormataCamposCliForm
               end
               object cbUF: TComboBox
                 Items.Strings = (
@@ -1165,8 +1152,8 @@ object frmMain: TfrmMain
                   'SP'
                   'SE'
                   'TO')
-                Position.X = 405.000000000000000000
-                Position.Y = 172.000000000000000000
+                Position.X = 408.000000000000000000
+                Position.Y = 156.000000000000000000
                 Size.Width = 48.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
@@ -1177,9 +1164,8 @@ object frmMain: TfrmMain
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 StyleLookup = 'transparentedit'
                 TabOrder = 23
-                MaxLength = 80
-                Position.X = 23.000000000000000000
-                Position.Y = 220.000000000000000000
+                Position.X = 26.000000000000000000
+                Position.Y = 204.000000000000000000
                 Size.Width = 424.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
@@ -1189,9 +1175,8 @@ object frmMain: TfrmMain
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 StyleLookup = 'transparentedit'
                 TabOrder = 24
-                MaxLength = 14
-                Position.X = 23.000000000000000000
-                Position.Y = 268.000000000000000000
+                Position.X = 26.000000000000000000
+                Position.Y = 252.000000000000000000
                 Size.Width = 175.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
@@ -1200,29 +1185,18 @@ object frmMain: TfrmMain
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 StyleLookup = 'transparentedit'
                 TabOrder = 26
-                MaxLength = 14
-                Position.X = 228.000000000000000000
-                Position.Y = 268.000000000000000000
+                Position.X = 231.000000000000000000
+                Position.Y = 252.000000000000000000
                 Size.Width = 175.000000000000000000
                 Size.Height = 21.000000000000000000
                 Size.PlatformDefault = False
               end
-              object sbSaveCli: TSpeedButton
-                CanFocus = True
-                Position.X = 423.000000000000000000
-                Position.Y = 257.000000000000000000
-                Size.Width = 36.000000000000000000
-                Size.Height = 36.000000000000000000
-                Size.PlatformDefault = False
-                StyleLookup = 'csSaveCli'
-                Text = 'sbSaveCli'
-                OnClick = sbSaveCliClick
-              end
             end
             object Layout5: TLayout
-              Align = Top
+              Align = Bottom
+              Position.Y = 296.000000000000000000
               Size.Width = 480.000000000000000000
-              Size.Height = 193.000000000000000000
+              Size.Height = 241.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               object lblCliAtualTitle: TLabel
@@ -1272,7 +1246,6 @@ object frmMain: TfrmMain
               end
               object lblCliAtualTelefones: TLabel
                 Align = Top
-                StyledSettings = [Family, Size, FontColor]
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
@@ -1281,7 +1254,6 @@ object frmMain: TfrmMain
                 Size.Width = 460.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
                 Text = 'lblCliAtualTelefones'
                 TabOrder = 2
               end
@@ -1324,6 +1296,17 @@ object frmMain: TfrmMain
                 Text = 'lblCliAtualCadastro'
                 TabOrder = 1
               end
+            end
+            object sbSaveCli: TSpeedButton
+              CanFocus = True
+              Position.X = 426.000000000000000000
+              Position.Y = 241.000000000000000000
+              Size.Width = 36.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'csSaveCli'
+              Text = 'sbSaveCli'
+              OnClick = sbSaveCliClick
             end
           end
           object Layout4: TLayout

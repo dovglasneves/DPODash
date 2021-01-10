@@ -98,8 +98,6 @@ object DM: TDM
   object QueryUpdate: TFDQuery
     AfterScroll = QueryCliAfterScroll
     Connection = FDConn
-    SQL.Strings = (
-      'select * from clientes;')
     Left = 32
     Top = 184
     object FDAutoIncField1: TFDAutoIncField

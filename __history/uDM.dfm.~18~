@@ -2,76 +2,76 @@ object DM: TDM
   OldCreateOrder = False
   Height = 304
   Width = 398
-  object QueryCli: TFDQuery
+  object QuerySelect: TFDQuery
     Active = True
-    AfterScroll = QueryCliAfterScroll
+    AfterScroll = QuerySelectAfterScroll
     Connection = FDConn
     SQL.Strings = (
       'select * from clientes;')
     Left = 32
     Top = 128
-    object QueryCliid: TFDAutoIncField
+    object QuerySelectid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
       ReadOnly = True
     end
-    object QueryClinome: TWideStringField
+    object QuerySelectnome: TWideStringField
       FieldName = 'nome'
       Origin = 'nome'
       Required = True
       Size = 40
     end
-    object QueryClisexo: TWideStringField
+    object QuerySelectsexo: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'sexo'
       Origin = 'sexo'
       FixedChar = True
       Size = 2
     end
-    object QueryCliendereco: TWideStringField
+    object QuerySelectendereco: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'endereco'
       Origin = 'endereco'
       Size = 40
     end
-    object QueryClibairro: TWideStringField
+    object QuerySelectbairro: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'bairro'
       Origin = 'bairro'
       Size = 10
     end
-    object QueryClicidade: TWideStringField
+    object QuerySelectcidade: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'cidade'
       Origin = 'cidade'
     end
-    object QueryCliuf: TWideStringField
+    object QuerySelectuf: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'uf'
       Origin = 'uf'
       FixedChar = True
       Size = 2
     end
-    object QueryCliemail: TWideStringField
+    object QuerySelectemail: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'email'
       Origin = 'email'
       Size = 80
     end
-    object QueryClitelefone: TWideStringField
+    object QuerySelecttelefone: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'telefone'
       Origin = 'telefone'
       Size = 14
     end
-    object QueryClicelular: TWideStringField
+    object QuerySelectcelular: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'celular'
       Origin = 'celular'
       Size = 14
     end
-    object QueryClidata_mod: TSQLTimeStampField
+    object QuerySelectdata_mod: TSQLTimeStampField
       AutoGenerateValue = arDefault
       FieldName = 'data_mod'
       Origin = 'data_mod'
@@ -96,7 +96,8 @@ object DM: TDM
     Top = 72
   end
   object QueryUpdate: TFDQuery
-    AfterScroll = QueryCliAfterScroll
+    Active = True
+    AfterScroll = QuerySelectAfterScroll
     Connection = FDConn
     SQL.Strings = (
       'select * from clientes;')

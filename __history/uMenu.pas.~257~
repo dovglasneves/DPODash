@@ -12,7 +12,7 @@ uses
   FMX.Ani, FMX.WebBrowser, System.iOUtils, Math,
   {$IFDEF MSWINDOWS}
   System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts, FMX.ListBox, SqlTimSt,
-  FMX.ComboEdit, FMX.Menus
+  FMX.ComboEdit
   {$ENDIF};
 
 type

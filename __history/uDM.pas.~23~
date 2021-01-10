@@ -12,20 +12,20 @@ uses
 
 type
   TDM = class(TDataModule)
-    QueryCli: TFDQuery;
+    QuerySelect: TFDQuery;
     FDConn: TFDConnection;
     MySQLDriverLink: TFDPhysMySQLDriverLink;
-    QueryCliid: TFDAutoIncField;
-    QueryClinome: TWideStringField;
-    QueryClisexo: TWideStringField;
-    QueryCliendereco: TWideStringField;
-    QueryClibairro: TWideStringField;
-    QueryClicidade: TWideStringField;
-    QueryCliuf: TWideStringField;
-    QueryCliemail: TWideStringField;
-    QueryClitelefone: TWideStringField;
-    QueryClicelular: TWideStringField;
-    QueryClidata_mod: TSQLTimeStampField;
+    QuerySelectid: TFDAutoIncField;
+    QuerySelectnome: TWideStringField;
+    QuerySelectsexo: TWideStringField;
+    QuerySelectendereco: TWideStringField;
+    QuerySelectbairro: TWideStringField;
+    QuerySelectcidade: TWideStringField;
+    QuerySelectuf: TWideStringField;
+    QuerySelectemail: TWideStringField;
+    QuerySelecttelefone: TWideStringField;
+    QuerySelectcelular: TWideStringField;
+    QuerySelectdata_mod: TSQLTimeStampField;
     QueryUpdate: TFDQuery;
     FDAutoIncField1: TFDAutoIncField;
     WideStringField1: TWideStringField;
@@ -38,7 +38,7 @@ type
     WideStringField8: TWideStringField;
     WideStringField9: TWideStringField;
     SQLTimeStampField1: TSQLTimeStampField;
-    procedure QueryCliAfterScroll(DataSet: TDataSet);
+    procedure QuerySelectAfterScroll(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -56,7 +56,7 @@ uses uMenu, uFunctions;
 
 {$R *.dfm}
 
-procedure TDM.QueryCliAfterScroll(DataSet: TDataSet);
+procedure TDM.QuerySelectAfterScroll(DataSet: TDataSet);
 begin
 with frmMain do
   begin

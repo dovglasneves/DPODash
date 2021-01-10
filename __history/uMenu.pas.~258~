@@ -142,6 +142,8 @@ type
     lblCliAtualEmail: TLabel;
     lblCliAtualTelefones: TLabel;
     lblCliAtualCadastro: TLabel;
+    PopupMenu1: TPopupMenu;
+    MenuItem1: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);

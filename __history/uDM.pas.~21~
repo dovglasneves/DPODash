@@ -26,18 +26,6 @@ type
     QueryClitelefone: TWideStringField;
     QueryClicelular: TWideStringField;
     QueryClidata_mod: TSQLTimeStampField;
-    QueryUpdate: TFDQuery;
-    FDAutoIncField1: TFDAutoIncField;
-    WideStringField1: TWideStringField;
-    WideStringField2: TWideStringField;
-    WideStringField3: TWideStringField;
-    WideStringField4: TWideStringField;
-    WideStringField5: TWideStringField;
-    WideStringField6: TWideStringField;
-    WideStringField7: TWideStringField;
-    WideStringField8: TWideStringField;
-    WideStringField9: TWideStringField;
-    SQLTimeStampField1: TSQLTimeStampField;
     procedure QueryCliAfterScroll(DataSet: TDataSet);
   private
     { Private declarations }
@@ -65,7 +53,7 @@ with frmMain do
                                 +QueryClibairro.Value;
     lblCliAtualCidade.Text := 'Cidade: ' +QueryClicidade.Value +'/' +QueryCliuf.Value;
     lblCliAtualEmail.Text := 'E-mail: ' +QueryCliemail.Value;
-    lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(QueryClitelefone.Value) +' - Celular (WhatsApp): ' +FormatarTelefone(QueryClicelular.Value);
+    lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(QueryClitelefone.Value) +' - Celular(WhatsApp): ' +FormatarTelefone(QueryClicelular.Value);
     lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QueryClidata_mod.Value);
   end;
 end;

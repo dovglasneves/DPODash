@@ -96,6 +96,7 @@ object DM: TDM
     Top = 72
   end
   object QueryUpdate: TFDQuery
+    Active = True
     AfterScroll = QueryCliAfterScroll
     Connection = FDConn
     SQL.Strings = (

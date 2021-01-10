@@ -440,7 +440,7 @@ object frmMain: TfrmMain
       Size.Width = 978.000000000000000000
       Size.Height = 537.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabPosition = None
       Sizes = (
@@ -462,7 +462,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -682,7 +682,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -1231,6 +1231,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 20.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 20.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1247,6 +1248,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 10.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 47.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1262,6 +1264,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 113.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1276,6 +1279,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 135.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1290,6 +1294,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 91.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1303,6 +1308,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 69.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1316,6 +1322,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 157.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -8414,5 +8421,12 @@ object frmMain: TfrmMain
     ScopeMappings = <>
     Left = 608
     Top = 624
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 922
+    Top = 136
+    object MenuItem1: TMenuItem
+      Text = 'Copiar dados'
+    end
   end
 end

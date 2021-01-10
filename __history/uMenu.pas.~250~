@@ -12,7 +12,7 @@ uses
   FMX.Ani, FMX.WebBrowser, System.iOUtils, Math,
   {$IFDEF MSWINDOWS}
   System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts, FMX.ListBox, SqlTimSt,
-  FMX.ComboEdit, FMX.Menus
+  FMX.ComboEdit
   {$ENDIF};
 
 type
@@ -312,17 +312,8 @@ end;
 
 procedure TfrmMain.sbSaveCliClick(Sender: TObject);
 begin
-if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
-or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
-  begin
-    UpdateClientsTable;
-    ClearClientForm;
-    DM.QueryCli.Open('SELECT * FROM clientes ORDER BY nome');
-    DM.QueryCli.First;
-  end else begin
-    MessageDlg('Um ou mais campos obrigatórios não foi preenchido.' +#13
-                +'Preencha os campos em negrito.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
-  end;
+UpdateClientsTable;
+ClearClientForm;
 end;
 
 procedure TfrmMain.sbUsernameClick(Sender: TObject);
@@ -351,15 +342,15 @@ lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.Query
 end;
 
 procedure TfrmMain.UpdateClientsTable;
-const
-vCommand = 'INSERT INTO clientes (nome,sexo,endereco,bairro,cidade,uf,email,telefone,celular) VALUES ';
 var
-vCliente: string;
+vCliente, vCommand: string;
 begin
 vCliente := '(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex]) +',' +QuotedStr(edtEndereco.Text)
             +',' +QuotedStr(edtBairro.Text) +',' +QuotedStr(edtCidade.Text) +','
             +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +',' +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text)
             +',' +QuotedStr(edtCelular.Text) +');';
+ShowMessage(vCliente);
+vCommand := 'INSERT INTO clientes (nome,sexo,endereco,bairro,cidade,uf,email,telefone,celular) VALUES ';
 DM.QueryUpdate.Close;
 DM.QueryUpdate.SQL.Clear;
 try
@@ -367,6 +358,7 @@ try
   DM.QueryUpdate.ExecSQL(True);
 finally
   DM.QueryUpdate.Close;
+
 end;
 end;
 

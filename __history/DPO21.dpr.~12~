@@ -6,8 +6,7 @@ uses
   uLogon in 'uLogon.pas' {frmLogon},
   uMenu in 'uMenu.pas' {frmMain},
   uChart in 'uChart.pas',
-  uDM in 'uDM.pas' {DM: TDataModule},
-  uFunctions in 'uFunctions.pas';
+  uDM in 'uDM.pas' {DM: TDataModule};
 
 {$R *.res}
 
