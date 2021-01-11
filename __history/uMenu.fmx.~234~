@@ -307,7 +307,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           IsPressed = True
           Position.X = 15.000000000000000000
           Size.Width = 113.000000000000000000
@@ -320,7 +319,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 152.000000000000000000
           Size.Width = 86.000000000000000000
@@ -333,7 +331,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 253.000000000000000000
           Size.Width = 98.000000000000000000
@@ -346,7 +343,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 366.000000000000000000
           Size.Width = 108.000000000000000000
@@ -387,7 +383,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 498.000000000000000000
           Size.Width = 136.000000000000000000
@@ -400,7 +395,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 649.000000000000000000
           Size.Width = 152.000000000000000000
@@ -427,7 +421,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 825.000000000000000000
           Size.Width = 120.000000000000000000
@@ -6916,7 +6909,7 @@ object frmMain: TfrmMain
     end
   end
   object BindSourceDB1: TBindSourceDB
-    DataSet = DM.QuerySelection
+    DataSet = DM.QueryCli
     ScopeMappings = <>
     Left = 608
     Top = 624

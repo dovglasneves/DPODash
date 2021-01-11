@@ -299,8 +299,7 @@ end;
 procedure TfrmMain.sbDelCliClick(Sender: TObject);
 begin
 if ListView1.Selected.Index > -1 then
-  if MessageDlg('Deseja mesmo excluir o cadastro selecionado?', TMsgDlgType.mtConfirmation,
-  [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
+  if MessageDlg('Deseja mesmo excluir o cadastro selecionado?', TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
     begin
         DM.QueryUpdate.Close;
         DM.QueryUpdate.SQL.Clear;
@@ -332,7 +331,6 @@ begin
 if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
 or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
   begin
-  // Verifica duplicidade de cadastro e pergunta se o usuário deseja inserir mesmo assim
     if VerificaDuplicidade(edtNome.Text, DM.QueryUpdate) = False then
       begin
         if MessageDlg('Um cliente com o nome informado já consta cadastrado.' +#13
@@ -383,11 +381,10 @@ vCommand = 'INSERT INTO clientes (nome,sexo,endereco,bairro,cidade,uf,email,tele
 var
 vCliente: string;
 begin
-vCliente := vCommand +'(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex])
-            +',' +QuotedStr(edtEndereco.Text) +',' +QuotedStr(edtBairro.Text) +','
-            +QuotedStr(edtCidade.Text) +',' +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +','
-            +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text) +','
-            +QuotedStr(edtCelular.Text) +');';
+vCliente := vCommand +'(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex]) +',' +QuotedStr(edtEndereco.Text)
+            +',' +QuotedStr(edtBairro.Text) +',' +QuotedStr(edtCidade.Text) +','
+            +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +',' +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text)
+            +',' +QuotedStr(edtCelular.Text) +');';
 DM.QueryUpdate.Close;
 DM.QueryUpdate.SQL.Clear;
 DM.QueryUpdate.SQL.Add(vCliente);

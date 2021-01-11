@@ -307,7 +307,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           IsPressed = True
           Position.X = 15.000000000000000000
           Size.Width = 113.000000000000000000
@@ -320,7 +319,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 152.000000000000000000
           Size.Width = 86.000000000000000000
@@ -333,7 +331,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 253.000000000000000000
           Size.Width = 98.000000000000000000
@@ -346,7 +343,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 366.000000000000000000
           Size.Width = 108.000000000000000000
@@ -387,7 +383,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 498.000000000000000000
           Size.Width = 136.000000000000000000
@@ -400,7 +395,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 649.000000000000000000
           Size.Width = 152.000000000000000000
@@ -427,7 +421,6 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Left
           Cursor = crHandPoint
-          GroupName = 'NavBar'
           Margins.Left = 15.000000000000000000
           Position.X = 825.000000000000000000
           Size.Width = 120.000000000000000000
@@ -829,13 +822,11 @@ object frmMain: TfrmMain
                   Size.PlatformDefault = False
                   StyleLookup = 'csDelCli'
                   Text = 'sbSaveCli'
-                  OnClick = sbDelCliClick
                 end
                 object sbEditCli: TSpeedButton
                   Align = Right
                   CanFocus = True
                   Cursor = crHandPoint
-                  Margins.Left = 5.000000000000000000
                   Position.X = 274.000000000000000000
                   Size.Width = 80.000000000000000000
                   Size.Height = 30.000000000000000000
@@ -1257,6 +1248,7 @@ object frmMain: TfrmMain
             end
             object Layout5: TLayout
               Align = Top
+              PopupMenu = PopupMenu1
               Size.Width = 480.000000000000000000
               Size.Height = 193.000000000000000000
               Size.PlatformDefault = False
@@ -1267,6 +1259,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 20.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 20.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1283,6 +1276,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 10.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 47.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1298,6 +1292,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 113.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1312,6 +1307,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 135.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1326,6 +1322,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 91.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1339,6 +1336,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 69.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1352,6 +1350,7 @@ object frmMain: TfrmMain
                 Margins.Left = 10.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 10.000000000000000000
+                PopupMenu = PopupMenu1
                 Position.X = 10.000000000000000000
                 Position.Y = 157.000000000000000000
                 Size.Width = 460.000000000000000000
@@ -1359,6 +1358,24 @@ object frmMain: TfrmMain
                 Size.PlatformDefault = False
                 Text = 'lblCliAtualCadastro'
                 TabOrder = 1
+              end
+              object PopupMenu1: TPopupMenu
+                Left = 690
+                Top = 168
+                object MenuItem1: TMenuItem
+                  PopupMenu = PopupMenu1
+                  Text = 'Copiar telefone'
+                end
+                object MenuItem2: TMenuItem
+                  PopupMenu = PopupMenu1
+                  Text = 'Copiar celular'
+                end
+                object MenuItem3: TMenuItem
+                  Text = 'Copiar e-mail'
+                end
+                object MenuItem4: TMenuItem
+                  Text = 'Copiar todos os dados'
+                end
               end
             end
           end
@@ -6916,7 +6933,7 @@ object frmMain: TfrmMain
     end
   end
   object BindSourceDB1: TBindSourceDB
-    DataSet = DM.QuerySelection
+    DataSet = DM.QueryCli
     ScopeMappings = <>
     Left = 608
     Top = 624

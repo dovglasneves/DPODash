@@ -8,23 +8,37 @@ uses
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.UI.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.Phys.MySQL,
   FireDAC.Phys.MySQLDef, FireDAC.FMXUI.Wait, Data.DB, FireDAC.Comp.Client,
-  FireDAC.Comp.DataSet;
+  FireDAC.Comp.DataSet, SqlTimSt;
 
 type
   TDM = class(TDataModule)
-    QueryCli: TFDQuery;
+    QuerySelection: TFDQuery;
     FDConn: TFDConnection;
     MySQLDriverLink: TFDPhysMySQLDriverLink;
-    QueryCliid: TFDAutoIncField;
-    QueryClinome: TWideStringField;
-    QueryClisexo: TWideStringField;
-    QueryCliendereco: TWideStringField;
-    QueryClibairro: TWideStringField;
-    QueryClicidade: TWideStringField;
-    QueryCliuf: TWideStringField;
-    QueryCliemail: TWideStringField;
-    QueryClitelefone: TWideStringField;
-    QueryClicelular: TWideStringField;
+    QuerySelectionid: TFDAutoIncField;
+    QuerySelectionnome: TWideStringField;
+    QuerySelectionsexo: TWideStringField;
+    QuerySelectionendereco: TWideStringField;
+    QuerySelectionbairro: TWideStringField;
+    QuerySelectioncidade: TWideStringField;
+    QuerySelectionuf: TWideStringField;
+    QuerySelectionemail: TWideStringField;
+    QuerySelectiontelefone: TWideStringField;
+    QuerySelectioncelular: TWideStringField;
+    QuerySelectiondata_mod: TSQLTimeStampField;
+    QueryUpdate: TFDQuery;
+    FDAutoIncField1: TFDAutoIncField;
+    WideStringField1: TWideStringField;
+    WideStringField2: TWideStringField;
+    WideStringField3: TWideStringField;
+    WideStringField4: TWideStringField;
+    WideStringField5: TWideStringField;
+    WideStringField6: TWideStringField;
+    WideStringField7: TWideStringField;
+    WideStringField8: TWideStringField;
+    WideStringField9: TWideStringField;
+    SQLTimeStampField1: TSQLTimeStampField;
+    procedure QuerySelectionAfterScroll(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -38,6 +52,22 @@ implementation
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
+uses uMenu, uFunctions;
+
 {$R *.dfm}
+
+procedure TDM.QuerySelectionAfterScroll(DataSet: TDataSet);
+begin
+with frmMain do
+  begin
+    lblCliAtualNome.Text := QuerySelectionnome.Value;
+    lblCliAtualEndereco.Text := 'Endereço: ' +QuerySelectionendereco.Value +' - '
+                                +QuerySelectionbairro.Value;
+    lblCliAtualCidade.Text := 'Cidade: ' +QuerySelectioncidade.Value +'/' +QuerySelectionuf.Value;
+    lblCliAtualEmail.Text := 'E-mail: ' +QuerySelectionemail.Value;
+    lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(QuerySelectiontelefone.Value) +' - Celular (WhatsApp): ' +FormatarTelefone(QuerySelectioncelular.Value);
+    lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
+  end;
+end;
 
 end.

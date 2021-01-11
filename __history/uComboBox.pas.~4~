@@ -1,0 +1,46 @@
+unit uComboBox;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, Math, FMX.ListBox, DateUtils;
+
+type
+TCombobox = class(FMX.ListBox.TComboBox)
+  private
+    LastTimeKeydown:TDatetime;
+    Keys:string;
+  protected
+    procedure KeyDown(var Key: Word; var KeyChar: System.WideChar; Shift: TShiftState);override;
+  end;
+
+implementation
+
+{ TCombobox }
+
+procedure TCombobox.KeyDown(var Key: Word; var KeyChar: System.WideChar; Shift: TShiftState);
+var
+aStr:string;
+I: Integer;
+begin
+if Key=vkReturn then exit;
+if (KeyChar in [chr(48)..chr(57)]) or (keychar in [chr(65)..chr(90)]) or (keychar in [chr(97)..chr(122)]) then begin
+//combination of keys? (500) is personal reference
+if MilliSecondsBetween(LastTimeKeydown,Now)<500 then
+Keys:=Keys+KeyChar
+else // start new combination
+keys:=KeyChar;
+//last time key was pressed
+LastTimeKeydown:=Now;
+//lookup item
+for I := 0 to count-1 do
+if uppercase(copy(items[i],0,keys.length))=uppercase(keys) then begin
+itemindex:=i;
+exit; //first item found is good
+end;
+end;
+  inherited;
+end;
+
+end.
