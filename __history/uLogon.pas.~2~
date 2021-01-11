@@ -132,14 +132,13 @@ try
     end else
     begin
       MessageDlg('Login ou senha incorreta! Tente novamente.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
+      edtLogin.Text := '';
       edtPass.Text := '';
-      edtPass.SetFocus;
+      edtLogin.SetFocus;
       Attempts:=Attempts+1;
       if Attempts >= 3 then
       begin
         MessageDlg('Caso não se lembre da senha entre em contato com o admin do sistema.', TMsgDlgType.mtWarning, [TMsgDlgBtn.mbOK], 0);
-        edtLogin.Text := '';
-        edtLogin.SetFocus;
         Attempts := 0;
       end;
     end;
