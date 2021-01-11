@@ -12,9 +12,22 @@ uses
 
 type
   TDM = class(TDataModule)
-    QueryCli: TFDQuery;
+    QuerySelection: TFDQuery;
     FDConn: TFDConnection;
     MySQLDriverLink: TFDPhysMySQLDriverLink;
+<<<<<<< HEAD
+    QuerySelectionid: TFDAutoIncField;
+    QuerySelectionnome: TWideStringField;
+    QuerySelectionsexo: TWideStringField;
+    QuerySelectionendereco: TWideStringField;
+    QuerySelectionbairro: TWideStringField;
+    QuerySelectioncidade: TWideStringField;
+    QuerySelectionuf: TWideStringField;
+    QuerySelectionemail: TWideStringField;
+    QuerySelectiontelefone: TWideStringField;
+    QuerySelectioncelular: TWideStringField;
+    QuerySelectiondata_mod: TSQLTimeStampField;
+=======
     QueryCliid: TFDAutoIncField;
     QueryClinome: TWideStringField;
     QueryClisexo: TWideStringField;
@@ -26,6 +39,7 @@ type
     QueryClitelefone: TWideStringField;
     QueryClicelular: TWideStringField;
     QueryClidata_mod: TSQLTimeStampField;
+>>>>>>> 459321da64946831b0722d6306eb23de776933f8
     QueryUpdate: TFDQuery;
     FDAutoIncField1: TFDAutoIncField;
     WideStringField1: TWideStringField;
@@ -38,7 +52,11 @@ type
     WideStringField8: TWideStringField;
     WideStringField9: TWideStringField;
     SQLTimeStampField1: TSQLTimeStampField;
+<<<<<<< HEAD
+    procedure QuerySelectionAfterScroll(DataSet: TDataSet);
+=======
     procedure QueryCliAfterScroll(DataSet: TDataSet);
+>>>>>>> 459321da64946831b0722d6306eb23de776933f8
   private
     { Private declarations }
   public
@@ -56,6 +74,19 @@ uses uMenu, uFunctions;
 
 {$R *.dfm}
 
+<<<<<<< HEAD
+procedure TDM.QuerySelectionAfterScroll(DataSet: TDataSet);
+begin
+with frmMain do
+  begin
+    lblCliAtualNome.Text := QuerySelectionnome.Value;
+    lblCliAtualEndereco.Text := 'Endereço: ' +QuerySelectionendereco.Value +' - '
+                                +QuerySelectionbairro.Value;
+    lblCliAtualCidade.Text := 'Cidade: ' +QuerySelectioncidade.Value +'/' +QuerySelectionuf.Value;
+    lblCliAtualEmail.Text := 'E-mail: ' +QuerySelectionemail.Value;
+    lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(QuerySelectiontelefone.Value) +' - Celular (WhatsApp): ' +FormatarTelefone(QuerySelectioncelular.Value);
+    lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
+=======
 procedure TDM.QueryCliAfterScroll(DataSet: TDataSet);
 begin
 with frmMain do
@@ -67,6 +98,7 @@ with frmMain do
     lblCliAtualEmail.Text := 'E-mail: ' +QueryCliemail.Value;
     lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(QueryClitelefone.Value) +' - Celular (WhatsApp): ' +FormatarTelefone(QueryClicelular.Value);
     lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QueryClidata_mod.Value);
+>>>>>>> 459321da64946831b0722d6306eb23de776933f8
   end;
 end;
 

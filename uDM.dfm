@@ -4,11 +4,7 @@ object DM: TDM
   Width = 398
   object QuerySelection: TFDQuery
     Active = True
-<<<<<<< HEAD
     AfterScroll = QuerySelectionAfterScroll
-=======
-    AfterScroll = QueryCliAfterScroll
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
     Connection = FDConn
     SQL.Strings = (
       'select * from clientes;')
@@ -75,11 +71,7 @@ object DM: TDM
       Origin = 'celular'
       Size = 14
     end
-<<<<<<< HEAD
     object QuerySelectiondata_mod: TSQLTimeStampField
-=======
-    object QueryClidata_mod: TSQLTimeStampField
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
       AutoGenerateValue = arDefault
       FieldName = 'data_mod'
       Origin = 'data_mod'
@@ -104,12 +96,8 @@ object DM: TDM
     Top = 72
   end
   object QueryUpdate: TFDQuery
-<<<<<<< HEAD
     Active = True
     AfterScroll = QuerySelectionAfterScroll
-=======
-    AfterScroll = QueryCliAfterScroll
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
     Connection = FDConn
     SQL.Strings = (
       'select * from clientes;')

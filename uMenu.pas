@@ -142,11 +142,8 @@ type
     lblCliAtualEmail: TLabel;
     lblCliAtualTelefones: TLabel;
     lblCliAtualCadastro: TLabel;
-<<<<<<< HEAD
     sbDelCli: TSpeedButton;
     sbEditCli: TSpeedButton;
-=======
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -166,10 +163,7 @@ type
       Shift: TShiftState; X, Y: Single);
     procedure sbSaveCliClick(Sender: TObject);
     procedure FormataCamposCliForm(Sender: TObject);
-<<<<<<< HEAD
     procedure sbDelCliClick(Sender: TObject);
-=======
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
   private
     { Private declarations }
     procedure ResetObjectFocus(Sender: TObject);
@@ -300,7 +294,6 @@ procedure TfrmMain.sbDashClick(Sender: TObject);
 begin
 TabControl.ActiveTab := tbDashboard;
 ResetObjectFocus(Sender);
-<<<<<<< HEAD
 end;
 
 procedure TfrmMain.sbDelCliClick(Sender: TObject);
@@ -315,8 +308,6 @@ if ListView1.Selected.Index > -1 then
         DM.QueryUpdate.ExecSQL(True);
         UpdateLastReg;
     end;
-=======
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 end;
 
 procedure TfrmMain.sbNotasClick(Sender: TObject);
@@ -341,7 +332,6 @@ begin
 if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
 or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
   begin
-<<<<<<< HEAD
   // Verifica duplicidade de cadastro e pergunta se o usuário deseja inserir mesmo assim
     if VerificaDuplicidade(edtNome.Text, DM.QueryUpdate) = False then
       begin
@@ -359,15 +349,6 @@ or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
     MessageDlg('Um ou mais campos obrigatórios não foi preenchido.' +#13
                 +'Preencha os campos obrigatórios antes de adicionar.', TMsgDlgType.mtError,
                 [TMsgDlgBtn.mbOK], 0);
-=======
-    UpdateClientsTable;
-    ClearClientForm;
-    DM.QueryCli.Open('SELECT * FROM clientes ORDER BY nome');
-    DM.QueryCli.First;
-  end else begin
-    MessageDlg('Um ou mais campos obrigatórios não foi preenchido.' +#13
-                +'Preencha os campos em negrito.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
   end;
 end;
 
@@ -386,7 +367,6 @@ end;
 
 procedure TfrmMain.UpdateClientPanel;
 begin
-<<<<<<< HEAD
 lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
 lblCliAtualEndereco.Text := 'Endereço: ' +DM.QuerySelectionendereco.Value +' - '
                             +DM.QuerySelectionbairro.Value;
@@ -395,16 +375,6 @@ lblCliAtualEmail.Text := 'E-mail: ' +DM.QuerySelectionemail.Value;
 lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QuerySelectiontelefone.Value)
                             +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QuerySelectioncelular.Value);
 lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
-=======
-lblCliAtualNome.Text := DM.QueryClinome.Value;
-lblCliAtualEndereco.Text := 'Endereço: ' +DM.QueryCliendereco.Value +' - '
-                            +DM.QueryClibairro.Value;
-lblCliAtualCidade.Text := 'Cidade: ' +DM.QueryClicidade.Value +'/' +DM.QueryCliuf.Value;
-lblCliAtualEmail.Text := 'E-mail: ' +DM.QueryCliemail.Value;
-lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QueryClitelefone.Value)
-                            +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QueryClicelular.Value);
-lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QueryClidata_mod.Value);
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 end;
 
 procedure TfrmMain.UpdateClientsTable;
@@ -413,7 +383,6 @@ vCommand = 'INSERT INTO clientes (nome,sexo,endereco,bairro,cidade,uf,email,tele
 var
 vCliente: string;
 begin
-<<<<<<< HEAD
 vCliente := vCommand +'(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex])
             +',' +QuotedStr(edtEndereco.Text) +',' +QuotedStr(edtBairro.Text) +','
             +QuotedStr(edtCidade.Text) +',' +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +','
@@ -423,27 +392,12 @@ DM.QueryUpdate.Close;
 DM.QueryUpdate.SQL.Clear;
 DM.QueryUpdate.SQL.Add(vCliente);
 DM.QueryUpdate.ExecSQL(True);
-=======
-vCliente := '(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex]) +',' +QuotedStr(edtEndereco.Text)
-            +',' +QuotedStr(edtBairro.Text) +',' +QuotedStr(edtCidade.Text) +','
-            +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +',' +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text)
-            +',' +QuotedStr(edtCelular.Text) +');';
-DM.QueryUpdate.Close;
-DM.QueryUpdate.SQL.Clear;
-try
-  DM.QueryUpdate.SQL.Add(vCommand +vCliente);
-  DM.QueryUpdate.ExecSQL(True);
-finally
-  DM.QueryUpdate.Close;
-end;
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 end;
 
 procedure TfrmMain.UpdateLastReg;
 var
 LastReg, LastDate, TotalReg:  string;
 begin
-<<<<<<< HEAD
 DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY data_mod');
 DM.QuerySelection.Last;
 LastReg := DM.QuerySelectionnome.Value;
@@ -454,18 +408,6 @@ lblListDescCli.Text := 'Última modificação no banco de dados: ' +LastReg +sLineB
                       +'Total de registros: ' +TotalReg;
 DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY nome');
 DM.QuerySelection.First;
-=======
-DM.QueryCli.Open('SELECT * FROM clientes ORDER BY data_mod');
-DM.QueryCli.Last;
-LastReg := DM.QueryClinome.Value;
-LastDate := SQLTimeStampToStr('', DM.QueryClidata_mod.Value);
-TotalReg := IntToStr(DM.QueryCli.RecordCount);
-lblListDescCli.Text := 'Última modificação no banco de dados: ' +LastReg +sLineBreak
-                      +'Data da última alteração: ' +LastDate +sLineBreak
-                      +'Total de registros: ' +TotalReg;
-DM.QueryCli.Open('SELECT * FROM clientes ORDER BY nome');
-DM.QueryCli.First;
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 end;
 
 procedure TfrmMain.sbMovimentoClick(Sender: TObject);

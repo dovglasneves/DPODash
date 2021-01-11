@@ -1,23 +1,14 @@
-<<<<<<< HEAD
 ﻿unit uFunctions;
-=======
-unit uFunctions;
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 
 interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-<<<<<<< HEAD
   FMX.Types, Math, Data.DB, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.Comp.Client, FireDAC.Comp.DataSet;
-=======
-  FMX.Types, Math;
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 
 function FormatarTelefone(Value: String): String;
 function FormataCEP(Value: String): String;
 function FormataNome(sNome: String): string;
-<<<<<<< HEAD
 function VerificaDuplicidade(CliNome: String; Query: TFDQuery): Boolean;
 
 implementation
@@ -33,11 +24,6 @@ begin
     Result := False;
 end;
 
-=======
-
-implementation
-
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 function FormatarTelefone(Value: String): String;
 var
 CA, Num1, Num2: String;
@@ -76,11 +62,7 @@ end;
 
 function FormataNome(sNome: String): string;
 const
-<<<<<<< HEAD
   excecao: array[0..8] of string = (' da ', ' de ', ' do ', ' das ', ' dos ', ' e ', ' nº ', ' n° ', ' n ');
-=======
-  excecao: array[0..8] of string = (' da ', ' de ', ' do ', ' das ', ' dos ', ' e ', ' n� ', ' n� ', ' n ');
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 var
   tamanho, j: integer;
   i: byte;

@@ -355,11 +355,7 @@ Coordinates=227,724,60,36
 [cbSexo]
 Coordinates=364,1,101,146
 
-<<<<<<< HEAD
 [DM.QuerySelection]
-=======
-[DM.QueryCli]
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 Coordinates=375,536,88,36
 Visible=False
 
