@@ -2,6 +2,7 @@
 *.psd
 *.exe
 *.dcu
+*.identcache
 Win32/Debug/index.html
 Win32/Debug/js/Chart.min.js
 js/index.html
