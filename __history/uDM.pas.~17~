@@ -1,0 +1,96 @@
+unit uDM;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.UI.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.Phys.MySQL,
+  FireDAC.Phys.MySQLDef, FireDAC.FMXUI.Wait, Data.DB, FireDAC.Comp.Client,
+  FireDAC.Comp.DataSet;
+
+type
+  TDM = class(TDataModule)
+    QueryCli: TFDQuery;
+    FDConn: TFDConnection;
+    MySQLDriverLink: TFDPhysMySQLDriverLink;
+    QueryCliid: TFDAutoIncField;
+    QueryClinome: TWideStringField;
+    QueryClisexo: TWideStringField;
+    QueryCliendereco: TWideStringField;
+    QueryClibairro: TWideStringField;
+    QueryClicidade: TWideStringField;
+    QueryCliuf: TWideStringField;
+    QueryCliemail: TWideStringField;
+    QueryClitelefone: TWideStringField;
+    QueryClicelular: TWideStringField;
+    QueryClidata_mod: TSQLTimeStampField;
+    procedure QueryCliAfterScroll(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+{%CLASSGROUP 'FMX.Controls.TControl'}
+
+uses uMenu;
+
+{$R *.dfm}
+
+function FormatarTelefone(Value: String): String;
+var
+CA, Num1, Num2: String;
+begin
+// Entrada 3334449999 ==> (33) 3444-9999
+case Trim(Value).Length of
+  10:
+  begin
+    CA   := Copy(Trim(Value),1,2);
+    Num1 := Copy(Trim(Value),3,4);
+    Num2  := Copy(Trim(Value),7,4);
+    Result := Format('(%2s)%4s-%4s', [CA, Num1, Num2]);
+  end;
+  11:
+  begin
+    CA   := Copy(Trim(Value),1,2);
+    Num1 := Copy(Trim(Value),3,5);
+    Num2  := Copy(Trim(Value),8,4);
+    Result := Format('(%2s)%5s-%4s', [CA, Num1, Num2]);
+  end;
+end;
+end;
+
+function FormataCEP(Value: String): String;
+var
+    Pref, Suff: String;
+begin
+    // comes in like 36010410
+if Trim(Value).Length = 8 then
+  begin
+    Pref  := Copy(Value, 1, 5);
+    Suff := Copy(Value, 6, 3);
+    Result := Format('%5s/-%3s', [Pref, Suff]);
+  end;
+end;
+
+procedure TDM.QueryCliAfterScroll(DataSet: TDataSet);
+begin
+with frmMain do
+  begin
+    lblCliAtualNome.Text := QueryClinome.Value;
+    lblCliAtualEndereco.Text := QueryCliendereco.Value +' - '
+                                +QueryClibairro.Value;
+    lblCliAtualCidade.Text := QueryClicidade.Value +'/' +QueryCliuf.Value;
+    lblCliAtualEmail.Text := QueryCliemail.Value;
+    lblCliAtualTelefones.Text := QueryClitelefone.Value +' - ' +QueryClicelular.Value;
+  end;
+end;
+
+end.

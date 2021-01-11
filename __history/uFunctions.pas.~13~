@@ -1,43 +1,17 @@
-<<<<<<< HEAD
-ï»¿unit uFunctions;
-=======
 unit uFunctions;
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 
 interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-<<<<<<< HEAD
-  FMX.Types, Math, Data.DB, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.Comp.Client, FireDAC.Comp.DataSet;
-=======
   FMX.Types, Math;
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 
 function FormatarTelefone(Value: String): String;
 function FormataCEP(Value: String): String;
 function FormataNome(sNome: String): string;
-<<<<<<< HEAD
-function VerificaDuplicidade(CliNome: String; Query: TFDQuery): Boolean;
 
 implementation
 
-function VerificaDuplicidade(CliNome: String; Query: TFDQuery): Boolean;
-begin
-  Query.Close;
-  Query.SQL.Clear;
-  Query.SQL.Add('SELECT * FROM clientes WHERE name=' +QuotedStr(CliNome));
-  if Query.RecordCount > 0 then
-    Result := True
-  else
-    Result := False;
-end;
-
-=======
-
-implementation
-
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
 function FormatarTelefone(Value: String): String;
 var
 CA, Num1, Num2: String;
@@ -76,11 +50,7 @@ end;
 
 function FormataNome(sNome: String): string;
 const
-<<<<<<< HEAD
-  excecao: array[0..8] of string = (' da ', ' de ', ' do ', ' das ', ' dos ', ' e ', ' nÂº ', ' nÂ° ', ' n ');
-=======
-  excecao: array[0..8] of string = (' da ', ' de ', ' do ', ' das ', ' dos ', ' e ', ' nï¿½ ', ' nï¿½ ', ' n ');
->>>>>>> 459321da64946831b0722d6306eb23de776933f8
+  excecao: array[0..7] of string = (' da ', ' de ', ' do ', ' das ', ' dos ', ' e ', 'nº', 'n°');
 var
   tamanho, j: integer;
   i: byte;
@@ -89,7 +59,7 @@ begin
   tamanho := Length(Result);
 
   for j := 1 to tamanho do
-    // Se ï¿½ a primeira letra ou se o caracter anterior ï¿½ um espaï¿½o
+    // Se é a primeira letra ou se o caracter anterior é um espaço
     if (j = 1) or ((j>1) and (Result[j-1]=Chr(32))) then
       Result[j] := AnsiUpperCase(Result[j])[1];
   for i := 0 to Length(excecao)-1 do

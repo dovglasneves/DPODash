@@ -15,6 +15,7 @@ type
     QuerySelection: TFDQuery;
     FDConn: TFDConnection;
     MySQLDriverLink: TFDPhysMySQLDriverLink;
+<<<<<<< HEAD
     QuerySelectionid: TFDAutoIncField;
     QuerySelectionnome: TWideStringField;
     QuerySelectionsexo: TWideStringField;
@@ -26,6 +27,19 @@ type
     QuerySelectiontelefone: TWideStringField;
     QuerySelectioncelular: TWideStringField;
     QuerySelectiondata_mod: TSQLTimeStampField;
+=======
+    QueryCliid: TFDAutoIncField;
+    QueryClinome: TWideStringField;
+    QueryClisexo: TWideStringField;
+    QueryCliendereco: TWideStringField;
+    QueryClibairro: TWideStringField;
+    QueryClicidade: TWideStringField;
+    QueryCliuf: TWideStringField;
+    QueryCliemail: TWideStringField;
+    QueryClitelefone: TWideStringField;
+    QueryClicelular: TWideStringField;
+    QueryClidata_mod: TSQLTimeStampField;
+>>>>>>> 459321da64946831b0722d6306eb23de776933f8
     QueryUpdate: TFDQuery;
     FDAutoIncField1: TFDAutoIncField;
     WideStringField1: TWideStringField;
@@ -38,7 +52,11 @@ type
     WideStringField8: TWideStringField;
     WideStringField9: TWideStringField;
     SQLTimeStampField1: TSQLTimeStampField;
+<<<<<<< HEAD
     procedure QuerySelectionAfterScroll(DataSet: TDataSet);
+=======
+    procedure QueryCliAfterScroll(DataSet: TDataSet);
+>>>>>>> 459321da64946831b0722d6306eb23de776933f8
   private
     { Private declarations }
   public
@@ -56,6 +74,7 @@ uses uMenu, uFunctions;
 
 {$R *.dfm}
 
+<<<<<<< HEAD
 procedure TDM.QuerySelectionAfterScroll(DataSet: TDataSet);
 begin
 with frmMain do
@@ -67,6 +86,19 @@ with frmMain do
     lblCliAtualEmail.Text := 'E-mail: ' +QuerySelectionemail.Value;
     lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(QuerySelectiontelefone.Value) +' - Celular (WhatsApp): ' +FormatarTelefone(QuerySelectioncelular.Value);
     lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
+=======
+procedure TDM.QueryCliAfterScroll(DataSet: TDataSet);
+begin
+with frmMain do
+  begin
+    lblCliAtualNome.Text := QueryClinome.Value;
+    lblCliAtualEndereco.Text := 'Endereço: ' +QueryCliendereco.Value +' - '
+                                +QueryClibairro.Value;
+    lblCliAtualCidade.Text := 'Cidade: ' +QueryClicidade.Value +'/' +QueryCliuf.Value;
+    lblCliAtualEmail.Text := 'E-mail: ' +QueryCliemail.Value;
+    lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(QueryClitelefone.Value) +' - Celular (WhatsApp): ' +FormatarTelefone(QueryClicelular.Value);
+    lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QueryClidata_mod.Value);
+>>>>>>> 459321da64946831b0722d6306eb23de776933f8
   end;
 end;
 
