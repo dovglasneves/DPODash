@@ -842,6 +842,7 @@ object frmMain: TfrmMain
                   Size.PlatformDefault = False
                   StyleLookup = 'csEditCli'
                   Text = 'sbSaveCli'
+                  OnClick = sbEditCliClick
                 end
               end
             end
@@ -1147,11 +1148,9 @@ object frmMain: TfrmMain
               end
               object cbSexo: TComboBox
                 Items.Strings = (
-                  ''
                   'M'
                   'F'
                   'N/A')
-                ItemIndex = 0
                 Position.X = 362.000000000000000000
                 Position.Y = 74.000000000000000000
                 Size.Width = 88.000000000000000000
@@ -1174,7 +1173,6 @@ object frmMain: TfrmMain
               end
               object cbUF: TComboBox
                 Items.Strings = (
-                  ''
                   'AC'
                   'AL'
                   'AP'
@@ -1202,7 +1200,6 @@ object frmMain: TfrmMain
                   'SP'
                   'SE'
                   'TO')
-                ItemIndex = 0
                 DropDownKind = Custom
                 Position.X = 405.000000000000000000
                 Position.Y = 172.000000000000000000
@@ -1257,81 +1254,6 @@ object frmMain: TfrmMain
                 StyleLookup = 'csSaveCli'
                 Text = 'sbSaveCli'
                 OnClick = sbSaveCliClick
-              end
-              object lblAst1: TLabel
-                AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 59.000000000000000000
-                Position.Y = 56.000000000000000000
-                Size.Width = 7.000000000000000000
-                Size.Height = 15.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = xFFDC2C2C
-                TextSettings.WordWrap = False
-                Text = '*'
-                TabOrder = 28
-              end
-              object lblAst2: TLabel
-                AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 86.000000000000000000
-                Position.Y = 105.000000000000000000
-                Size.Width = 7.000000000000000000
-                Size.Height = 15.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = xFFDC2C2C
-                TextSettings.WordWrap = False
-                Text = '*'
-                TabOrder = 29
-              end
-              object lblAst3: TLabel
-                AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 68.000000000000000000
-                Position.Y = 153.000000000000000000
-                Size.Width = 7.000000000000000000
-                Size.Height = 15.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = xFFDC2C2C
-                TextSettings.WordWrap = False
-                Text = '*'
-                TabOrder = 30
-              end
-              object lblAst4: TLabel
-                AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 265.000000000000000000
-                Position.Y = 153.000000000000000000
-                Size.Width = 7.000000000000000000
-                Size.Height = 15.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = xFFDC2C2C
-                TextSettings.WordWrap = False
-                Text = '*'
-                TabOrder = 31
-              end
-              object lblAst5: TLabel
-                AutoSize = True
-                StyledSettings = [Size]
-                Position.X = 425.000000000000000000
-                Position.Y = 153.000000000000000000
-                Size.Width = 7.000000000000000000
-                Size.Height = 15.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Family = 'Corbel'
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-                TextSettings.FontColor = xFFDC2C2C
-                TextSettings.WordWrap = False
-                Text = '*'
-                TabOrder = 32
               end
             end
             object Layout5: TLayout

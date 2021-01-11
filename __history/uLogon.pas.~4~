@@ -90,7 +90,6 @@ var
 InitialL, User, Mail: string;
 SizeDiff: Single;
 begin
-
 try
   FDConnection.Connected := True;
   if (Trim(edtLogin.Text)=EmptyStr) or (Trim(edtPass.Text)=EmptyStr) then

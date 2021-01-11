@@ -9,7 +9,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, Data.Bind.GenData,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.ObjectScope, FMX.ListView,
-  FMX.Ani, FMX.WebBrowser, System.iOUtils, Math,
+  FMX.Ani, FMX.WebBrowser, System.iOUtils, Math, DateUtils,
   {$IFDEF MSWINDOWS}
   System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts, FMX.ListBox, SqlTimSt,
   FMX.ComboEdit, FMX.Menus
@@ -142,8 +142,8 @@ type
     lblCliAtualEmail: TLabel;
     lblCliAtualTelefones: TLabel;
     lblCliAtualCadastro: TLabel;
-    PopupMenu1: TPopupMenu;
-    MenuItem1: TMenuItem;
+    sbDelCli: TSpeedButton;
+    sbEditCli: TSpeedButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -163,6 +163,8 @@ type
       Shift: TShiftState; X, Y: Single);
     procedure sbSaveCliClick(Sender: TObject);
     procedure FormataCamposCliForm(Sender: TObject);
+    procedure sbDelCliClick(Sender: TObject);
+    procedure sbEditCliClick(Sender: TObject);
   private
     { Private declarations }
     procedure ResetObjectFocus(Sender: TObject);
@@ -295,6 +297,31 @@ TabControl.ActiveTab := tbDashboard;
 ResetObjectFocus(Sender);
 end;
 
+procedure TfrmMain.sbDelCliClick(Sender: TObject);
+begin
+if ListView1.Selected.Index > -1 then
+  if MessageDlg('Deseja mesmo excluir o cadastro selecionado?', TMsgDlgType.mtConfirmation,
+  [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
+    begin
+        DM.QueryUpdate.Close;
+        DM.QueryUpdate.SQL.Clear;
+        DM.QueryUpdate.SQL.Add('DELETE FROM clientes WHERE id=' +IntToStr(DM.QuerySelectionid.Value));
+        DM.QueryUpdate.ExecSQL(True);
+        UpdateLastReg;
+    end;
+end;
+
+procedure TfrmMain.sbEditCliClick(Sender: TObject);
+var
+Sh1, Sh2, Sh3, Sh4: TLabel;
+begin
+Sh1 := TLabel.Create(rectInsertCli);
+Sh1.Position.X := lblFirstN.Position.X + edtNome.Width;
+Sh1.Position.Y := lblFirstN.Position.Y;
+Sh1.Text := '*';
+Sh1.Visible := True;
+end;
+
 procedure TfrmMain.sbNotasClick(Sender: TObject);
 begin
 TabControl.ActiveTab := tbEmitirNotas;
@@ -317,13 +344,23 @@ begin
 if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
 or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
   begin
-    UpdateClientsTable;
-    ClearClientForm;
-    DM.QueryCli.Open('SELECT * FROM clientes ORDER BY nome');
-    DM.QueryCli.First;
+  // Verifica duplicidade de cadastro e pergunta se o usuário deseja inserir mesmo assim
+    if VerificaDuplicidade(edtNome.Text, DM.QueryUpdate) = False then
+      begin
+        if MessageDlg('Um cliente com o nome informado já consta cadastrado.' +#13
+                      +'Deseja incluir um novo registro com o mesmo nome?', TMsgDlgType.mtWarning,
+                      [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
+          begin
+            UpdateClientsTable;
+            ClearClientForm;
+            DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY nome');
+            DM.QuerySelection.First;
+          end;
+      end;
   end else begin
     MessageDlg('Um ou mais campos obrigatórios não foi preenchido.' +#13
-                +'Preencha os campos em negrito.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
+                +'Preencha os campos obrigatórios antes de adicionar.', TMsgDlgType.mtError,
+                [TMsgDlgBtn.mbOK], 0);
   end;
 end;
 
@@ -342,14 +379,14 @@ end;
 
 procedure TfrmMain.UpdateClientPanel;
 begin
-lblCliAtualNome.Text := DM.QueryClinome.Value;
-lblCliAtualEndereco.Text := 'Endereço: ' +DM.QueryCliendereco.Value +' - '
-                            +DM.QueryClibairro.Value;
-lblCliAtualCidade.Text := 'Cidade: ' +DM.QueryClicidade.Value +'/' +DM.QueryCliuf.Value;
-lblCliAtualEmail.Text := 'E-mail: ' +DM.QueryCliemail.Value;
-lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QueryClitelefone.Value)
-                            +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QueryClicelular.Value);
-lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QueryClidata_mod.Value);
+lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
+lblCliAtualEndereco.Text := 'Endereço: ' +DM.QuerySelectionendereco.Value +' - '
+                            +DM.QuerySelectionbairro.Value;
+lblCliAtualCidade.Text := 'Cidade: ' +DM.QuerySelectioncidade.Value +'/' +DM.QuerySelectionuf.Value;
+lblCliAtualEmail.Text := 'E-mail: ' +DM.QuerySelectionemail.Value;
+lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QuerySelectiontelefone.Value)
+                            +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QuerySelectioncelular.Value);
+lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
 end;
 
 procedure TfrmMain.UpdateClientsTable;
@@ -358,34 +395,31 @@ vCommand = 'INSERT INTO clientes (nome,sexo,endereco,bairro,cidade,uf,email,tele
 var
 vCliente: string;
 begin
-vCliente := '(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex]) +',' +QuotedStr(edtEndereco.Text)
-            +',' +QuotedStr(edtBairro.Text) +',' +QuotedStr(edtCidade.Text) +','
-            +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +',' +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text)
-            +',' +QuotedStr(edtCelular.Text) +');';
+vCliente := vCommand +'(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex])
+            +',' +QuotedStr(edtEndereco.Text) +',' +QuotedStr(edtBairro.Text) +','
+            +QuotedStr(edtCidade.Text) +',' +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +','
+            +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text) +','
+            +QuotedStr(edtCelular.Text) +');';
 DM.QueryUpdate.Close;
 DM.QueryUpdate.SQL.Clear;
-try
-  DM.QueryUpdate.SQL.Add(vCommand +vCliente);
-  DM.QueryUpdate.ExecSQL(True);
-finally
-  DM.QueryUpdate.Close;
-end;
+DM.QueryUpdate.SQL.Add(vCliente);
+DM.QueryUpdate.ExecSQL(True);
 end;
 
 procedure TfrmMain.UpdateLastReg;
 var
 LastReg, LastDate, TotalReg:  string;
 begin
-DM.QueryCli.Open('SELECT * FROM clientes ORDER BY data_mod');
-DM.QueryCli.Last;
-LastReg := DM.QueryClinome.Value;
-LastDate := SQLTimeStampToStr('', DM.QueryClidata_mod.Value);
-TotalReg := IntToStr(DM.QueryCli.RecordCount);
+DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY data_mod');
+DM.QuerySelection.Last;
+LastReg := DM.QuerySelectionnome.Value;
+LastDate := SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
+TotalReg := IntToStr(DM.QuerySelection.RecordCount);
 lblListDescCli.Text := 'Última modificação no banco de dados: ' +LastReg +sLineBreak
                       +'Data da última alteração: ' +LastDate +sLineBreak
                       +'Total de registros: ' +TotalReg;
-DM.QueryCli.Open('SELECT * FROM clientes ORDER BY nome');
-DM.QueryCli.First;
+DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY nome');
+DM.QuerySelection.First;
 end;
 
 procedure TfrmMain.sbMovimentoClick(Sender: TObject);

@@ -1147,11 +1147,9 @@ object frmMain: TfrmMain
               end
               object cbSexo: TComboBox
                 Items.Strings = (
-                  ''
                   'M'
                   'F'
                   'N/A')
-                ItemIndex = 0
                 Position.X = 362.000000000000000000
                 Position.Y = 74.000000000000000000
                 Size.Width = 88.000000000000000000
@@ -1174,7 +1172,6 @@ object frmMain: TfrmMain
               end
               object cbUF: TComboBox
                 Items.Strings = (
-                  ''
                   'AC'
                   'AL'
                   'AP'
@@ -1202,7 +1199,6 @@ object frmMain: TfrmMain
                   'SP'
                   'SE'
                   'TO')
-                ItemIndex = 0
                 DropDownKind = Custom
                 Position.X = 405.000000000000000000
                 Position.Y = 172.000000000000000000

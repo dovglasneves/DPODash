@@ -144,6 +144,11 @@ type
     lblCliAtualCadastro: TLabel;
     sbDelCli: TSpeedButton;
     sbEditCli: TSpeedButton;
+    lblAst1: TLabel;
+    lblAst2: TLabel;
+    lblAst3: TLabel;
+    lblAst4: TLabel;
+    lblAst5: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -238,6 +243,16 @@ rectGraph2.ChartBarHorizontal(EmptyStr, '60:Jan;45:Fev;23:Mar;50:Abr;20:Mai;35:J
                                         +'21:Jul;65:Ago;56:Set;34:Out;35:Nov;50:Dez',
                                         $FFE04242);
 UpdateLastReg;
+lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
+lblAst1.Position.Y := lblFirstN.Position.Y -1;
+lblAst2.Position.X := lblEndereco.Position.X +lblEndereco.Width +1;
+lblAst2.Position.Y := lblEndereco.Position.Y -1;
+lblAst3.Position.X := lblBairro.Position.X +lblBairro.Width +1;
+lblAst3.Position.Y := lblBairro.Position.Y -1;
+lblAst4.Position.X := lblCidade.Position.X +lblCidade.Width +1;
+lblAst4.Position.Y := lblCidade.Position.Y -1;
+lblAst5.Position.X := lblUF.Position.X +lblUF.Width +1;
+lblAst5.Position.Y := lblUF.Position.Y -1;
 end;
 
 procedure TfrmMain.rectTitleMouseDown(Sender: TObject; Button: TMouseButton;
@@ -403,7 +418,7 @@ DM.QuerySelection.Last;
 LastReg := DM.QuerySelectionnome.Value;
 LastDate := SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
 TotalReg := IntToStr(DM.QuerySelection.RecordCount);
-lblListDescCli.Text := 'Última modificação no banco de dados: ' +LastReg +sLineBreak
+lblListDescCli.Text := 'Última alteração: ' +LastReg +sLineBreak
                       +'Data da última alteração: ' +LastDate +sLineBreak
                       +'Total de registros: ' +TotalReg;
 DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY nome');

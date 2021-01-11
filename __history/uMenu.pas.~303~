@@ -164,6 +164,7 @@ type
     procedure sbSaveCliClick(Sender: TObject);
     procedure FormataCamposCliForm(Sender: TObject);
     procedure sbDelCliClick(Sender: TObject);
+    procedure sbEditCliClick(Sender: TObject);
   private
     { Private declarations }
     procedure ResetObjectFocus(Sender: TObject);
@@ -299,7 +300,8 @@ end;
 procedure TfrmMain.sbDelCliClick(Sender: TObject);
 begin
 if ListView1.Selected.Index > -1 then
-  if MessageDlg('Deseja mesmo excluir o cadastro selecionado?', TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
+  if MessageDlg('Deseja mesmo excluir o cadastro selecionado?', TMsgDlgType.mtConfirmation,
+  [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
     begin
         DM.QueryUpdate.Close;
         DM.QueryUpdate.SQL.Clear;
@@ -307,6 +309,16 @@ if ListView1.Selected.Index > -1 then
         DM.QueryUpdate.ExecSQL(True);
         UpdateLastReg;
     end;
+end;
+
+procedure TfrmMain.sbEditCliClick(Sender: TObject);
+var
+Sh1, Sh2, Sh3, Sh4: TLabel;
+begin
+Sh1 := TLabel.Create(rectInsertCli);
+Sh1.Position.X := lblFirstN.Position.X + edtNome.Width;
+Sh1.Position.Y := lblFirstN.Position.Y;
+Sh1.Text := '*';
 end;
 
 procedure TfrmMain.sbNotasClick(Sender: TObject);
@@ -331,10 +343,12 @@ begin
 if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
 or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
   begin
-    if VerificaDuplicidade(edtNome.Text, DM.QuerySelection) = False then
+  // Verifica duplicidade de cadastro e pergunta se o usuário deseja inserir mesmo assim
+    if VerificaDuplicidade(edtNome.Text, DM.QueryUpdate) = False then
       begin
-        if MessageDlg('O cliente informado já consta cadastrado.' +#13
-                +'Deseja incluir um novo registro?', TMsgDlgType.mtWarning, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
+        if MessageDlg('Um cliente com o nome informado já consta cadastrado.' +#13
+                      +'Deseja incluir um novo registro com o mesmo nome?', TMsgDlgType.mtWarning,
+                      [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
           begin
             UpdateClientsTable;
             ClearClientForm;
@@ -344,7 +358,8 @@ or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
       end;
   end else begin
     MessageDlg('Um ou mais campos obrigatórios não foi preenchido.' +#13
-                +'Preencha os campos obrigatórios antes de adicionar.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
+                +'Preencha os campos obrigatórios antes de adicionar.', TMsgDlgType.mtError,
+                [TMsgDlgBtn.mbOK], 0);
   end;
 end;
 
@@ -379,10 +394,11 @@ vCommand = 'INSERT INTO clientes (nome,sexo,endereco,bairro,cidade,uf,email,tele
 var
 vCliente: string;
 begin
-vCliente := vCommand +'(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex]) +',' +QuotedStr(edtEndereco.Text)
-            +',' +QuotedStr(edtBairro.Text) +',' +QuotedStr(edtCidade.Text) +','
-            +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +',' +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text)
-            +',' +QuotedStr(edtCelular.Text) +');';
+vCliente := vCommand +'(' +QuotedStr(edtNome.Text) +',' +QuotedStr(cbSexo.Items[cbSexo.ItemIndex])
+            +',' +QuotedStr(edtEndereco.Text) +',' +QuotedStr(edtBairro.Text) +','
+            +QuotedStr(edtCidade.Text) +',' +QuotedStr(cbUF.Items[cbUF.ItemIndex]) +','
+            +QuotedStr(edtEmail.Text) +',' +QuotedStr(edtTelefone.Text) +','
+            +QuotedStr(edtCelular.Text) +');';
 DM.QueryUpdate.Close;
 DM.QueryUpdate.SQL.Clear;
 DM.QueryUpdate.SQL.Add(vCliente);
