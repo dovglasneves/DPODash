@@ -17,7 +17,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmLogon, frmLogon);
   Application.CreateForm(TfrmMain, frmMain);
-  Application.CreateForm(TDM, DM);
   Application.Title := 'DPODash v1.23';
   Application.Run;
 end.

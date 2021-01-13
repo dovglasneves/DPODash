@@ -1,7 +1,5 @@
 program DPO21;
 
-{$R *.dres}
-
 uses
   System.StartUpCopy,
   FMX.Forms,
@@ -18,6 +16,5 @@ begin
   Application.CreateForm(TfrmLogon, frmLogon);
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TDM, DM);
-  Application.Title := 'DPODash v1.23';
   Application.Run;
 end.

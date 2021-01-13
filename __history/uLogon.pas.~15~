@@ -149,6 +149,7 @@ finally
   frmMain.Parent := Self;
   Application.MainForm := frmMain;
   frmLogon.Close;
+  frmLogon.Destroy;
 end;
 end;
 

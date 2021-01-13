@@ -81,7 +81,7 @@ type
     rectLastRecords: TRectangle;
     lbDescLastRec: TLabel;
     Rect: TListView;
-    PrototypeBindSource: TPrototypeBindSource;
+    PrototypeBindSource1: TPrototypeBindSource;
     BindingsList: TBindingsList;
     BindSourceDB: TBindSourceDB;
     rectSearch: TRectangle;
@@ -434,6 +434,10 @@ begin
   lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QuerySelectiontelefone.Value)
                               +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QuerySelectioncelular.Value);
   lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
+    if ListView1.Selected.Index > -1 then
+    begin
+
+    end;
 end;
 
 procedure TfrmMain.UpdateClientsTable;

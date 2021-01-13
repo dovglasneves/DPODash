@@ -4,8 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, Math, Data.DB, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.Comp.Client,
-  FireDAC.Comp.DataSet;
+  FMX.Types, Math, Data.DB, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.Comp.Client, FireDAC.Comp.DataSet;
 
 function FormatarTelefone(Value: string): string;
 function FormataCEP(Value: string): string;
@@ -17,10 +16,7 @@ implementation
 
 function VerificaEmail(Value: string): Boolean;
 begin
-  if (Pos('@',Value) > 0) then
-    Result := True
-    else
-    Result := False;
+
 end;
 
 function VerificaDuplicidade(CliNome: String; Query: TFDQuery): Boolean;
@@ -38,7 +34,7 @@ function FormatarTelefone(Value: String): String;
 var
 CI, CA, Num1, Num2: String;
 begin
-//Verifica número de caracteres do telefone
+  // Entrada: 3334449999 ==> Saída: +55 (33) 3444-9999
   case Trim(Value).Length of
     10:
     begin
@@ -46,7 +42,7 @@ begin
       Num1 := Copy(Trim(Value),3,4);
       Num2  := Copy(Trim(Value),7,4);
       Result := Format('(%2s) %4s-%4s', [CA, Num1, Num2]);
-      //Output: (00) 0000-0000
+      // Exemplo: (00) 0000-0000
     end;
     11:
     begin
@@ -54,7 +50,7 @@ begin
       Num1 := Copy(Trim(Value),3,5);
       Num2  := Copy(Trim(Value),8,4);
       Result := Format('(%2s) %5s-%4s', [CA, Num1, Num2]);
-      //Output: (00) 00000-0000
+      // Exemplo: (00) 00000-0000
     end;
     12:
     begin
@@ -63,7 +59,7 @@ begin
       Num1 := Copy(Trim(Value),5,4);
       Num2  := Copy(Trim(Value),9,4);
       Result := Format('+%2s (%2s) %4s-%4s', [CI, CA, Num1, Num2]);
-      //Output: +55 (00) 0000-0000
+      // Exemplo: +55 (00) 0000-0000
     end;
     13:
     begin
@@ -72,7 +68,7 @@ begin
       Num1 := Copy(Trim(Value),5,5);
       Num2  := Copy(Trim(Value),10,4);
       Result := Format('+%2s (%2s) %5s-%4s', [CI, CA, Num1, Num2]);
-      //Output: +55 (00) 00000-0000
+      // Exemplo: +55 (00) 00000-0000
     end;
   end;
 end;
@@ -81,7 +77,7 @@ function FormataCEP(Value: String): String;
 var
     Pref, Suff: String;
 begin
-//Input: 36010010 ==> Output: 36010-000
+//Input: 36010410 ==> Output: 36010-410
 if Trim(Value).Length = 8 then
   begin
     Pref  := Copy(Value, 1, 5);

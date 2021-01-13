@@ -16,9 +16,6 @@ Coordinates=444,256,54,36
 [rectDashBG]
 Coordinates=350,256,84,36
 
-[StyleBook1]
-Coordinates=368,243,80,36
-
 [lbDescCli]
 Coordinates=10,188,69,58
 
@@ -179,20 +176,11 @@ Coordinates=275,174,74,58
 [lbDescLastRec]
 Coordinates=0,446,101,58
 
-[PrototypeBindSource1]
-Coordinates=270,430,143,102
-
 [lbTilteGraph1]
 Coordinates=726,496,92,58
 
 [rectLastRecords]
 Coordinates=876,133,108,36
-
-[BindingsList1]
-Coordinates=726,573,91,36
-
-[BindSourceDB1]
-Coordinates=375,536,106,322
 
 [lbFoorterGraph1]
 Coordinates=0,520,109,58
@@ -356,6 +344,63 @@ Coordinates=227,724,60,36
 Coordinates=364,1,101,146
 
 [DM.QuerySelection]
-Coordinates=375,536,88,36
+Coordinates=375,536,126,36
 Visible=False
+
+[BindSourceDB]
+Coordinates=375,536,114,322
+
+[BindingsList]
+Coordinates=726,573,84,36
+
+[StyleBook]
+Coordinates=368,243,72,36
+
+[lblCliAtualEndereco]
+Coordinates=98,724,127,58
+
+[lblAst5]
+Coordinates=876,760,53,58
+
+[lblAst2]
+Coordinates=724,232,53,58
+
+[lblCliAtualCadastro]
+Coordinates=998,56,125,58
+
+[sbEditCli]
+Coordinates=0,0,66,58
+
+[lblAst1]
+Coordinates=876,914,53,58
+
+[sbDelCli]
+Coordinates=29,724,63,58
+
+[lblCliAtualTelefones]
+Coordinates=1161,1,129,58
+
+[lblCliAtualNome]
+Coordinates=102,1,106,58
+
+[lblAst3]
+Coordinates=447,380,53,58
+
+[lblCliAtualCidade]
+Coordinates=162,284,113,58
+
+[lblAst4]
+Coordinates=876,837,53,58
+
+[DM.QueryUpdate]
+Coordinates=256,724,114,300
+
+[lblCliAtualTitle]
+Coordinates=998,133,97,58
+
+[lblCliAtualEmail]
+Coordinates=578,78,105,58
+
+[PrototypeBindSource]
+Coordinates=270,430,143,102
 

@@ -765,13 +765,11 @@ object frmMain: TfrmMain
                 ItemAppearanceObjects.ItemObjects.Text.Font.StyleExt = {00070000000000000004000000}
                 ItemAppearanceObjects.ItemObjects.Text.Width = 250.000000000000000000
                 ItemAppearanceObjects.ItemObjects.Text.Height = 22.000000000000000000
-                ItemAppearanceObjects.ItemObjects.Text.PlaceOffset.X = 1.000000000000000000
                 ItemAppearanceObjects.ItemObjects.Detail.Font.Family = 'Consolas'
                 ItemAppearanceObjects.ItemObjects.Detail.TextAlign = Leading
                 ItemAppearanceObjects.ItemObjects.Detail.Width = 250.000000000000000000
                 ItemAppearanceObjects.ItemObjects.Detail.Height = 22.000000000000000000
-                ItemAppearanceObjects.ItemObjects.Detail.Align = Leading
-                ItemAppearanceObjects.ItemObjects.Detail.PlaceOffset.X = 1.000000000000000000
+                ItemAppearanceObjects.ItemObjects.Detail.PlaceOffset.X = -178.000000000000000000
                 ItemAppearanceObjects.ItemObjects.Detail.PlaceOffset.Y = 21.000000000000000000
                 CanSwipeDelete = False
                 SearchAlwaysOnTop = False

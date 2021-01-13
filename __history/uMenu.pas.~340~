@@ -81,7 +81,7 @@ type
     rectLastRecords: TRectangle;
     lbDescLastRec: TLabel;
     Rect: TListView;
-    PrototypeBindSource: TPrototypeBindSource;
+    PrototypeBindSource1: TPrototypeBindSource;
     BindingsList: TBindingsList;
     BindSourceDB: TBindSourceDB;
     rectSearch: TRectangle;
@@ -425,15 +425,15 @@ end;
 
 procedure TfrmMain.UpdateClientPanel;
 begin
-  //Popular labels com nome do cliente atual
-  lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
-  lblCliAtualEndereco.Text := 'Endereço: ' +DM.QuerySelectionendereco.Value +' - '
-                              +DM.QuerySelectionbairro.Value;
-  lblCliAtualCidade.Text := 'Cidade: ' +DM.QuerySelectioncidade.Value +'/' +DM.QuerySelectionuf.Value;
-  lblCliAtualEmail.Text := 'E-mail: ' +DM.QuerySelectionemail.Value;
-  lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QuerySelectiontelefone.Value)
-                              +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QuerySelectioncelular.Value);
-  lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
+//Popular labels com nome do cliente atual
+lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
+lblCliAtualEndereco.Text := 'Endereço: ' +DM.QuerySelectionendereco.Value +' - '
+                            +DM.QuerySelectionbairro.Value;
+lblCliAtualCidade.Text := 'Cidade: ' +DM.QuerySelectioncidade.Value +'/' +DM.QuerySelectionuf.Value;
+lblCliAtualEmail.Text := 'E-mail: ' +DM.QuerySelectionemail.Value;
+lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QuerySelectiontelefone.Value)
+                            +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QuerySelectioncelular.Value);
+lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
 end;
 
 procedure TfrmMain.UpdateClientsTable;

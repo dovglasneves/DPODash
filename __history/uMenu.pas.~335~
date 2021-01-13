@@ -9,7 +9,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, Data.Bind.GenData,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.ObjectScope, FMX.ListView,
-  FMX.Ani, System.iOUtils, Math, DateUtils,
+  FMX.Ani, FMX.WebBrowser, System.iOUtils, Math, DateUtils,
   {$IFDEF MSWINDOWS}
   System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts, FMX.ListBox, SqlTimSt,
   FMX.ComboEdit, FMX.Menus
@@ -81,7 +81,7 @@ type
     rectLastRecords: TRectangle;
     lbDescLastRec: TLabel;
     Rect: TListView;
-    PrototypeBindSource: TPrototypeBindSource;
+    PrototypeBindSource1: TPrototypeBindSource;
     BindingsList: TBindingsList;
     BindSourceDB: TBindSourceDB;
     rectSearch: TRectangle;
@@ -308,7 +308,6 @@ end;
 
 procedure TfrmMain.sbCliClick(Sender: TObject);
 begin
-//Abre a tela de clientes, atauliza dados e foca no campo nome
 TabControl.ActiveTab := tbClientes;
 ResetObjectFocus(Sender);
 UpdateClientPanel;
@@ -378,12 +377,6 @@ if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
 or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
   begin
   // Verifica duplicidade de cadastro e pergunta se o usuário deseja inserir mesmo assim
-    if VerificaEmail(edtEmail.Text) = False then
-      begin
-        MessageDlg('O valor digitado no campo email é inválido.', TMsgDlgType.mtError,
-                [TMsgDlgBtn.mbOK], 0);
-        Abort
-      end;
     if VerificaDuplicidade(edtNome.Text, DM.QueryUpdate) = True then
       begin
         if MessageDlg('Um cliente com o nome informado já consta cadastrado.' +#13
@@ -425,15 +418,15 @@ end;
 
 procedure TfrmMain.UpdateClientPanel;
 begin
-  //Popular labels com nome do cliente atual
-  lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
-  lblCliAtualEndereco.Text := 'Endereço: ' +DM.QuerySelectionendereco.Value +' - '
-                              +DM.QuerySelectionbairro.Value;
-  lblCliAtualCidade.Text := 'Cidade: ' +DM.QuerySelectioncidade.Value +'/' +DM.QuerySelectionuf.Value;
-  lblCliAtualEmail.Text := 'E-mail: ' +DM.QuerySelectionemail.Value;
-  lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QuerySelectiontelefone.Value)
-                              +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QuerySelectioncelular.Value);
-  lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
+//Popular labels com nome do cliente atual
+lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
+lblCliAtualEndereco.Text := 'Endereço: ' +DM.QuerySelectionendereco.Value +' - '
+                            +DM.QuerySelectionbairro.Value;
+lblCliAtualCidade.Text := 'Cidade: ' +DM.QuerySelectioncidade.Value +'/' +DM.QuerySelectionuf.Value;
+lblCliAtualEmail.Text := 'E-mail: ' +DM.QuerySelectionemail.Value;
+lblCliAtualTelefones.Text := 'Telefone Comercial: ' +FormatarTelefone(DM.QuerySelectiontelefone.Value)
+                            +' - Celular (WhatsApp): ' +FormatarTelefone(DM.QuerySelectioncelular.Value);
+lblCliAtualCadastro.Text := 'Data de Cadastro: ' +SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
 end;
 
 procedure TfrmMain.UpdateClientsTable;
@@ -452,7 +445,6 @@ DM.QueryUpdate.Close;
 DM.QueryUpdate.SQL.Clear;
 DM.QueryUpdate.SQL.Add(vCliente);
 DM.QueryUpdate.ExecSQL(True);
-UpdateLastReg;
 end;
 
 procedure TfrmMain.UpdateLastReg;

@@ -4,8 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, Math, Data.DB, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.Comp.Client,
-  FireDAC.Comp.DataSet;
+  FMX.Types, Math, Data.DB, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.Comp.Client, FireDAC.Comp.DataSet;
 
 function FormatarTelefone(Value: string): string;
 function FormataCEP(Value: string): string;
@@ -17,10 +16,7 @@ implementation
 
 function VerificaEmail(Value: string): Boolean;
 begin
-  if (Pos('@',Value) > 0) then
-    Result := True
-    else
-    Result := False;
+
 end;
 
 function VerificaDuplicidade(CliNome: String; Query: TFDQuery): Boolean;
@@ -38,7 +34,6 @@ function FormatarTelefone(Value: String): String;
 var
 CI, CA, Num1, Num2: String;
 begin
-//Verifica número de caracteres do telefone
   case Trim(Value).Length of
     10:
     begin

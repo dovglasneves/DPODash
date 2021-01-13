@@ -129,6 +129,7 @@ try
         InitialL := Copy(User,0,1);
         lbInitial.Text := InitialL;
       end;
+      frmMain := TForm.Create(frmMain);
       frmMain.Show;
     end else
     begin
@@ -146,9 +147,8 @@ try
     end;
 finally
   FDConnection.Connected := False;
-  frmMain.Parent := Self;
-  Application.MainForm := frmMain;
   frmLogon.Close;
+  frmLogon.DisposeOf;
 end;
 end;
 

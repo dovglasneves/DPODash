@@ -81,7 +81,7 @@ type
     rectLastRecords: TRectangle;
     lbDescLastRec: TLabel;
     Rect: TListView;
-    PrototypeBindSource: TPrototypeBindSource;
+    PrototypeBindSource1: TPrototypeBindSource;
     BindingsList: TBindingsList;
     BindSourceDB: TBindSourceDB;
     rectSearch: TRectangle;

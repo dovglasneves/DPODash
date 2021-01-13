@@ -147,7 +147,8 @@ try
 finally
   FDConnection.Connected := False;
   frmMain.Parent := Self;
-  Application.MainForm := frmMain;
+  Application.FormDestroyed(frmLogon);
+  frmLogon.Free;
   frmLogon.Close;
 end;
 end;
