@@ -356,6 +356,10 @@
         <UWP_DelphiLogo44>Used Images\logo-test1-44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>Used Images\logo-test1-144.png</UWP_DelphiLogo150>
         <Icon_MainIcon>dpo-dash-logo.ico</Icon_MainIcon>
+        <VerInfo_Debug>true</VerInfo_Debug>
+        <VerInfo_Build>3</VerInfo_Build>
+        <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.3;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -387,7 +391,6 @@
             <Form>frmMain</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="uChart.pas"/>
         <DCCReference Include="uDM.pas">
             <Form>DM</Form>
             <FormType>dfm</FormType>

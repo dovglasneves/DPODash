@@ -41,8 +41,6 @@ type
       Shift: TShiftState);
     procedure edtPassKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
-    procedure img_bgMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
-      Y: Single);
   private
     { Private declarations }
     Login, HashMD5: string;
@@ -87,17 +85,12 @@ AcessLevel := 0;
 edtLogin.SetFocus;
 end;
 
-procedure TfrmLogon.img_bgMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
-  Y: Single);
-begin
-Self.StartWindowDrag;
-end;
-
 procedure TfrmLogon.sbLoginClick(Sender: TObject);
 var
 InitialL, User, Mail: string;
 SizeDiff: Single;
 begin
+
 try
   FDConnection.Connected := True;
   if (Trim(edtLogin.Text)=EmptyStr) or (Trim(edtPass.Text)=EmptyStr) then

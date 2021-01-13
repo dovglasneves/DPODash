@@ -154,11 +154,10 @@ type
     Image3: TImage;
     lbDescLastRec: TLabel;
     ListView2: TListView;
+    LinkListControlToField2: TLinkListControlToField;
     rectGraphValues: TRectangle;
     lblGraphMonth: TLabel;
     lblGraphValue: TLabel;
-    FloatAnimation2: TFloatAnimation;
-    LinkListControlToField2: TLinkListControlToField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -174,7 +173,7 @@ type
     procedure edtSearchExit(Sender: TObject);
     procedure sbCloseBtnClick(Sender: TObject);
     procedure FormDeactivate(Sender: TObject);
-    procedure ArrastaJanela(Sender: TObject; Button: TMouseButton;
+    procedure rectTitleMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
     procedure sbSaveCliClick(Sender: TObject);
     procedure FormataCamposCliForm(Sender: TObject);
@@ -185,7 +184,6 @@ type
       Shift: TShiftState);
     procedure Chart2ClickSeries(Sender: TCustomChart; Series: TChartSeries; ValueIndex: Integer;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-    procedure FloatAnimation2Finish(Sender: TObject);
   private
     { Private declarations }
     procedure TempFillGraphs;
@@ -217,13 +215,10 @@ Meses := ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'A
 //Captura valor do eixo Y na série em que o usuário clicou
 if ValueIndex > 0 then
   begin
-    rectGraphValues.Visible := False;
     lblGraphMonth.Text := Meses[ValueIndex-1];
     lblGraphValue.Text := LineSeries1.YValue[ValueIndex].ToString;
-    rectGraphValues.Position.X := X.ToSingle-(rectGraphValues.Width/2);
-    rectGraphValues.Position.Y := Y.ToSingle+(rectGraphValues.Height/2);
-    rectGraphValues.Opacity := 1;
-    Application.ProcessMessages;
+    rectGraphValues.Position.X := X.ToSingle;
+    rectGraphValues.Position.Y := Y.ToSingle;
     rectGraphValues.Visible := True;
   end;
 end;
@@ -240,11 +235,6 @@ edtTelefone.Text := EmptyStr;
 edtCelular.Text := EmptyStr;
 cbSexo.ItemIndex := -1;
 cbUF.ItemIndex := -1;
-end;
-
-procedure TfrmMain.FloatAnimation2Finish(Sender: TObject);
-begin
-rectGraphValues.Visible := False;
 end;
 
 procedure TfrmMain.FormataCamposCliForm(Sender: TObject);
@@ -305,8 +295,6 @@ begin
 TempFillGraphs;
 frmMain.Width := 980;
 frmMain.Height := 680;
-rectPopupExit.Visible := False;
-rectGraphValues.Visible := False;
 UpdateLastReg;
 //Posiciona asteriscos em simetria com os labels de título
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
@@ -321,7 +309,7 @@ lblAst5.Position.X := lblUF.Position.X +lblUF.Width +1;
 lblAst5.Position.Y := lblUF.Position.Y -1;
 end;
 
-procedure TfrmMain.ArrastaJanela(Sender: TObject; Button: TMouseButton;
+procedure TfrmMain.rectTitleMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
 Self.StartWindowDrag;

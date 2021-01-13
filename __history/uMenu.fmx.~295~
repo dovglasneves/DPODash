@@ -156,7 +156,7 @@ object frmMain: TfrmMain
         Size.Height = 61.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
-        OnMouseDown = ArrastaJanela
+        OnMouseDown = rectTitleMouseDown
         object rectUser: TRectangle
           Align = MostRight
           Fill.Kind = None
@@ -309,7 +309,6 @@ object frmMain: TfrmMain
           Size.Height = 61.000000000000000000
           Size.PlatformDefault = False
           WrapMode = Place
-          OnMouseDown = ArrastaJanela
         end
         object Image3: TImage
           MultiResBitmap.Height = 144
@@ -500,7 +499,6 @@ object frmMain: TfrmMain
           Size.Height = 61.000000000000000000
           Size.PlatformDefault = False
           WrapMode = Place
-          OnMouseDown = ArrastaJanela
         end
       end
       object rectNavBar: TRectangle

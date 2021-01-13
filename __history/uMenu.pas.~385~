@@ -174,7 +174,7 @@ type
     procedure edtSearchExit(Sender: TObject);
     procedure sbCloseBtnClick(Sender: TObject);
     procedure FormDeactivate(Sender: TObject);
-    procedure ArrastaJanela(Sender: TObject; Button: TMouseButton;
+    procedure rectTitleMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
     procedure sbSaveCliClick(Sender: TObject);
     procedure FormataCamposCliForm(Sender: TObject);
@@ -321,7 +321,7 @@ lblAst5.Position.X := lblUF.Position.X +lblUF.Width +1;
 lblAst5.Position.Y := lblUF.Position.Y -1;
 end;
 
-procedure TfrmMain.ArrastaJanela(Sender: TObject; Button: TMouseButton;
+procedure TfrmMain.rectTitleMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
 Self.StartWindowDrag;

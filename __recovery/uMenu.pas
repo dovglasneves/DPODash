@@ -159,6 +159,7 @@ type
     lblGraphValue: TLabel;
     FloatAnimation2: TFloatAnimation;
     LinkListControlToField2: TLinkListControlToField;
+    rectCliDetalhes: TRectangle;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -212,9 +213,9 @@ procedure TfrmMain.Chart2ClickSeries(Sender: TCustomChart; Series: TChartSeries;
 var
 Meses: Array of string;
 begin
-Meses := ['Janeiro', 'Fevereiro', 'MarÁo', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto',
+Meses := ['Janeiro', 'Fevereiro', 'Mar√ßo', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto',
           'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-//Captura valor do eixo Y na sÈrie em que o usu·rio clicou
+//Captura valor do eixo Y na s√©rie em que o usu√°rio clicou
 if ValueIndex > 0 then
   begin
     rectGraphValues.Visible := False;
@@ -230,7 +231,7 @@ end;
 
 procedure TfrmMain.ClearClientForm;
 begin
-//Limpa campos da p·gina de clientes
+//Limpa campos da p√°gina de clientes
 edtNome.Text := EmptyStr;
 edtEndereco.Text := EmptyStr;
 edtBairro.Text := EmptyStr;
@@ -249,7 +250,7 @@ end;
 
 procedure TfrmMain.FormataCamposCliForm(Sender: TObject);
 begin
-//Formata edits com iniciais mai˙sculas
+//Formata edits com iniciais mai√∫sculas
 if Trim(edtNome.Text)<>EmptyStr then edtNome.Text := FormataNome(edtNome.Text);
 if Trim(edtEndereco.Text)<>EmptyStr then edtEndereco.Text := FormataNome(edtEndereco.Text);
 if Trim(edtBairro.Text)<>EmptyStr then edtBairro.Text := FormataNome(edtBairro.Text);
@@ -308,7 +309,7 @@ frmMain.Height := 680;
 rectPopupExit.Visible := False;
 rectGraphValues.Visible := False;
 UpdateLastReg;
-//Posiciona asteriscos em simetria com os labels de tÌtulo
+//Posiciona asteriscos em simetria com os labels de t√≠tulo
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
 lblAst1.Position.Y := lblFirstN.Position.Y -1;
 lblAst2.Position.X := lblEndereco.Position.X +lblEndereco.Width +1;
@@ -382,7 +383,7 @@ end;
 
 procedure TfrmMain.sbDelCliClick(Sender: TObject);
 begin
-//Verificar se h· cliente selecionado e exibe mensagem de confirmaÁ„o de exclus„o
+//Verificar se h√° cliente selecionado e exibe mensagem de confirma√ß√£o de exclus√£o
 if ListView1.Selected.Index > -1 then
   if MessageDlg('Deseja mesmo excluir o cadastro selecionado?', TMsgDlgType.mtConfirmation,
   [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
@@ -417,16 +418,16 @@ begin
 if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
 or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
   begin
-  // Verifica duplicidade de cadastro e pergunta se o usu·rio deseja inserir mesmo assim
+  // Verifica duplicidade de cadastro e pergunta se o usu√°rio deseja inserir mesmo assim
     if VerificaEmail(edtEmail.Text) = False then
       begin
-        MessageDlg('O valor digitado no campo email È inv·lido.', TMsgDlgType.mtError,
+        MessageDlg('O valor digitado no campo email √© inv√°lido.', TMsgDlgType.mtError,
                 [TMsgDlgBtn.mbOK], 0);
         Abort
       end;
     if VerificaDuplicidade(edtNome.Text, DM.QueryUpdate) = True then
       begin
-        if MessageDlg('Um cliente com o nome informado j· consta cadastrado.' +#13
+        if MessageDlg('Um cliente com o nome informado j√° consta cadastrado.' +#13
                       +'Deseja incluir um novo registro com o mesmo nome?', TMsgDlgType.mtWarning,
                       [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
           begin
@@ -442,8 +443,8 @@ or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
         DM.QuerySelection.First;
       end;
   end else begin
-    MessageDlg('Um ou mais campos obrigatÛrios n„o foi preenchido.' +#13
-                +'Preencha os campos obrigatÛrios antes de adicionar.', TMsgDlgType.mtError,
+    MessageDlg('Um ou mais campos obrigat√≥rios n√£o foi preenchido.' +#13
+                +'Preencha os campos obrigat√≥rios antes de adicionar.', TMsgDlgType.mtError,
                 [TMsgDlgBtn.mbOK], 0);
   end;
 end;
@@ -452,9 +453,9 @@ procedure TfrmMain.sbUsernameClick(Sender: TObject);
 var
 PosDiff, PopupPos: Single;
 begin
-//Ativa popup do Menu de configuraÁıes e logout
+//Ativa popup do Menu de configura√ß√µes e logout
 rectPopupExit.Visible := not rectPopupExit.Visible;
-//Verificar tamanho do nome do usu·rio e alinha popup
+//Verificar tamanho do nome do usu√°rio e alinha popup
 if rectPopupExit.Visible = True then
   begin
     PopupPos := rectUser.Position.X + sbUsername.Position.X + sbUsername.Width;
@@ -467,7 +468,7 @@ procedure TfrmMain.TempFillGraphs;
 var
 i: integer;
 begin
-//Procedure tempor·ria que preenche os gr·ficos
+//Procedure tempor√°ria que preenche os gr√°ficos
 Series1.Clear;
 Series2.Clear;
 LineSeries1.Clear;
@@ -502,7 +503,7 @@ procedure TfrmMain.UpdateClientPanel;
 begin
   //Popular labels com nome do cliente atual
   lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
-  lblCliAtualEndereco.Text := 'EndereÁo: ' +DM.QuerySelectionendereco.Value +' - '
+  lblCliAtualEndereco.Text := 'Endere√ßo: ' +DM.QuerySelectionendereco.Value +' - '
                               +DM.QuerySelectionbairro.Value;
   lblCliAtualCidade.Text := 'Cidade: ' +DM.QuerySelectioncidade.Value +'/' +DM.QuerySelectionuf.Value;
   lblCliAtualEmail.Text := 'E-mail: ' +DM.QuerySelectionemail.Value;
@@ -534,14 +535,14 @@ procedure TfrmMain.UpdateLastReg;
 var
 LastReg, LastDate, TotalReg:  string;
 begin
-//Atualiza as informaÁıes iniciais da tela de cadastro e visualizaÁ„o de clietes
+//Atualiza as informa√ß√µes iniciais da tela de cadastro e visualiza√ß√£o de clietes
 DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY data_mod');
 DM.QuerySelection.Last;
 LastReg := DM.QuerySelectionnome.Value;
 LastDate := SQLTimeStampToStr('', DM.QuerySelectiondata_mod.Value);
 TotalReg := IntToStr(DM.QuerySelection.RecordCount);
-lblListDescCli.Text := '⁄ltima alteraÁ„o: ' +LastReg +sLineBreak
-                      +'Data da ˙ltima alteraÁ„o: ' +LastDate +sLineBreak
+lblListDescCli.Text := '√öltima altera√ß√£o: ' +LastReg +sLineBreak
+                      +'Data da √∫ltima altera√ß√£o: ' +LastDate +sLineBreak
                       +'Total de registros: ' +TotalReg;
 DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY nome');
 DM.QuerySelection.First;

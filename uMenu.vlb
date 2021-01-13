@@ -1,406 +1,433 @@
 ﻿[rectUser]
-Coordinates=168,302,63,36
+Coordinates=1647,818,56,33
 
 [lbDescDash]
-Coordinates=190,188,84,58
+Coordinates=817,526,73,51
 
 [rectIcon]
-Coordinates=98,302,60,36
+Coordinates=10,756,54,33
 
 [TabControl]
-Coordinates=10,302,78,36
+Coordinates=1012,610,69,33
 
 [rectBG]
-Coordinates=444,256,54,36
+Coordinates=271,818,48,33
 
 [rectDashBG]
-Coordinates=350,256,84,36
+Coordinates=1608,756,73,33
 
 [lbDescCli]
-Coordinates=10,188,69,58
+Coordinates=1400,442,61,51
 
 [imgTitle]
-Coordinates=284,188,60,58
+Coordinates=718,358,53,51
 
 [rectTitle]
-Coordinates=279,256,61,36
+Coordinates=1166,756,54,33
 
 [tbDashboard]
-Coordinates=181,256,88,36
+Coordinates=1387,694,77,33
 
 [rectNavBar]
-Coordinates=92,256,79,36
+Coordinates=1463,818,69,33
 
 [lbInitial]
-Coordinates=354,188,55,58
+Coordinates=637,526,50,51
 
 [tbClientes]
-Coordinates=10,256,72,36
+Coordinates=279,694,64,33
 
 [rectCliBG]
-Coordinates=419,188,70,36
+Coordinates=686,694,61,33
 
 []
-Coordinates=550,580,116,249
+Coordinates=0,446,101,58
 Visible=True
 
 [sbCli]
-Coordinates=348,10,43,58
+Coordinates=1586,358,40,51
 
 [sbDash]
-Coordinates=89,188,58,58
+Coordinates=400,442,51,51
 
 [rectBtnBG3]
-Coordinates=585,155,81,36
+Coordinates=1013,818,71,33
 
 [lbAcessLevel]
-Coordinates=447,1,90,58
+Coordinates=1122,442,80,51
 
 [tbMovDiario]
-Coordinates=585,210,83,36
+Coordinates=1116,610,73,33
 
 [rectConPagBG]
-Coordinates=585,265,101,36
+Coordinates=1604,694,87,33
 
 [rectPopupMail]
-Coordinates=585,320,97,36
+Coordinates=148,818,85,33
 
 [RectPopupTitle]
-Coordinates=585,375,103,36
+Coordinates=10,694,89,33
 
 [rectProBG]
-Coordinates=506,380,74,36
+Coordinates=1587,610,65,33
 
 [rectNotasBG]
-Coordinates=358,380,88,36
+Coordinates=899,818,77,33
 
 [lbDescNotas]
-Coordinates=66,78,87,58
+Coordinates=822,442,76,51
 
 [sbConRec]
-Coordinates=305,87,74,58
+Coordinates=417,358,65,51
 
 [lbMail]
-Coordinates=447,380,48,58
+Coordinates=343,358,43,51
 
 [rectMovDiarioBG]
-Coordinates=239,380,112,36
+Coordinates=10,818,98,33
 
 [rectConRecBG]
-Coordinates=130,380,101,36
+Coordinates=300,756,87,33
 
 [sbNotas]
-Coordinates=23,284,62,58
+Coordinates=456,526,54,51
 
 [lbDescConRec]
-Coordinates=155,1,100,58
+Coordinates=1159,526,87,51
 
 [lbDescMovDiario]
-Coordinates=155,78,112,58
+Coordinates=618,610,97,51
 
 [rectBtnBG2]
-Coordinates=41,380,81,36
+Coordinates=1501,756,71,33
 
 [sbQuit]
-Coordinates=30,174,52,58
+Coordinates=848,610,46,51
 
 [lbNomeP]
-Coordinates=121,174,67,58
+Coordinates=1066,526,58,51
 
 [rectPopupExit]
-Coordinates=726,1,95,36
+Coordinates=1045,756,84,33
 
 [tbEmitirNotas]
-Coordinates=726,56,92,36
+Coordinates=182,756,81,33
 
 [rectGraph1]
-Coordinates=726,111,79,36
+Coordinates=517,818,69,33
 
 [tbContasReceber]
-Coordinates=724,166,114,36
+Coordinates=139,694,99,33
 
 [rectAcessLevel]
-Coordinates=726,221,102,36
+Coordinates=1244,818,89,33
 
 [lineSeparator2]
-Coordinates=726,276,98,36
+Coordinates=1377,756,85,33
 
 [lineSeparator3]
-Coordinates=726,331,98,36
+Coordinates=1120,818,85,33
 
 [sbConPag]
-Coordinates=365,284,74,58
+Coordinates=1495,442,65,51
 
 [sbLogout]
-Coordinates=69,1,67,58
+Coordinates=931,358,61,51
 
 [sbUsername]
-Coordinates=585,1,87,58
+Coordinates=605,358,76,51
 
 [rectBtnBG1]
-Coordinates=726,386,81,36
+Coordinates=1480,610,71,33
 
 [sbConfig]
-Coordinates=486,311,65,58
+Coordinates=1452,10,58,51
 
 [lineSeparator1]
-Coordinates=726,441,98,36
+Coordinates=1253,756,85,33
 
 [Line1]
-Coordinates=618,430,46,36
+Coordinates=445,818,41,33
 
 [lbDescConPag]
-Coordinates=447,78,100,58
+Coordinates=1361,358,87,51
 
 [tbProdutos]
-Coordinates=647,476,77,36
+Coordinates=1084,694,69,33
 
 [rectBorder]
-Coordinates=568,476,75,36
+Coordinates=427,756,66,33
 
 [sbProd]
-Coordinates=220,284,55,58
+Coordinates=1285,526,49,51
 
 [tbContasPagar]
-Coordinates=459,476,100,36
+Coordinates=474,694,87,33
 
 [lbSize]
-Coordinates=0,0,50,58
+Coordinates=10,442,44,51
 
 [FloatAnimation1]
-Coordinates=350,476,108,36
+Coordinates=350,476,95,33
 
 [lbDescPro]
-Coordinates=275,174,74,58
-
-[lbDescLastRec]
-Coordinates=0,446,101,58
-
-[lbTilteGraph1]
-Coordinates=726,496,92,58
+Coordinates=1595,442,65,51
 
 [rectLastRecords]
-Coordinates=876,133,108,36
-
-[lbFoorterGraph1]
-Coordinates=0,520,109,58
-
-[Rect]
-Coordinates=110,430,139,256
-Visible=True
+Coordinates=10,880,95,33
 
 [sbMovimento]
-Coordinates=585,78,91,58
+Coordinates=501,610,80,51
 
 [rectSearch]
-Coordinates=876,1,77,36
+Coordinates=528,756,67,33
 
 [lbDados]
-Coordinates=447,155,62,58
-
-[lbFooterGraph2]
-Coordinates=0,0,105,58
+Coordinates=1034,442,54,51
 
 [sbCloseBtn]
-Coordinates=155,1,80,58
-
-[lbTItleGraph2]
-Coordinates=447,1,93,58
+Coordinates=1655,358,71,51
 
 [rectData]
-Coordinates=876,56,63,36
+Coordinates=956,756,55,33
 
 [edtSearch]
-Coordinates=76,78,73,58
+Coordinates=1487,358,64,51
 
 [rectGraph2]
-Coordinates=876,188,79,36
+Coordinates=794,818,69,33
 
 [Layout2]
-Coordinates=876,243,60,36
+Coordinates=708,818,53,33
 
 [Layout1]
-Coordinates=876,298,60,36
+Coordinates=926,610,53,33
 
 [Layout4]
-Coordinates=280,1,60,36
+Coordinates=870,756,53,33
 
 [rectClientesList]
-Coordinates=0,340,103,36
+Coordinates=631,756,91,33
 
 [Layout3]
-Coordinates=280,53,60,36
+Coordinates=622,818,53,33
 
 [Text1]
-Coordinates=20,70,47,58
+Coordinates=1445,526,41,51
 
 [ListView1]
-Coordinates=589,531,107,190
+Coordinates=10,76,89,159
 Visible=True
 
 [lblListDescCli]
-Coordinates=726,573,92,58
+Coordinates=1112,10,82,51
 
 [edtCidade]
-Coordinates=162,185,73,58
+Coordinates=718,526,64,51
 
 [lblSexo]
-Coordinates=241,155,57,58
+Coordinates=1238,442,50,51
 
 [rectTelComercial]
-Coordinates=1022,1,112,36
+Coordinates=1225,610,97,33
 
 [lblUF]
-Coordinates=707,724,45,58
+Coordinates=1230,10,40,51
 
 [rectCidade]
-Coordinates=876,430,77,36
+Coordinates=1501,694,67,33
 
 [lblFirstN]
-Coordinates=578,232,62,58
+Coordinates=517,358,56,51
 
 [rectInsertCli]
-Coordinates=876,485,84,36
+Coordinates=760,756,74,33
 
 [rectSexo]
-Coordinates=876,540,65,36
+Coordinates=1372,818,57,33
 
 [lblInsertCliTitle]
-Coordinates=578,78,100,58
+Coordinates=274,442,88,51
 
 [lblTelComercial]
-Coordinates=222,1,104,58
+Coordinates=10,610,91,51
 
 [rectEmail]
-Coordinates=876,595,68,36
+Coordinates=351,818,60,33
 
 [edtTelefone]
-Coordinates=716,331,83,58
+Coordinates=392,610,72,51
 
 [edtBairro]
-Coordinates=578,309,67,58
+Coordinates=544,526,60,51
 
 [cbUF]
-Coordinates=102,1,101,146
+Coordinates=858,10,84,123
 
 [edtCelular]
-Coordinates=876,111,73,58
+Coordinates=935,442,64,51
 
 [edtEmail]
-Coordinates=212,284,65,58
+Coordinates=484,442,57,51
 
 [rectCelular]
-Coordinates=876,650,77,36
+Coordinates=1187,694,68,33
 
 [lblCidade]
-Coordinates=509,380,68,58
+Coordinates=1695,442,60,51
 
 [Image1]
-Coordinates=726,650,57,58
+Coordinates=105,526,49,51
 
 [Layout6]
-Coordinates=876,705,60,36
+Coordinates=96,756,53,33
 
 [lblListTItleCli]
-Coordinates=547,155,89,58
+Coordinates=707,442,78,51
 
 [lblCelular]
-Coordinates=876,353,69,58
+Coordinates=10,526,61,51
 
 [edtNome]
-Coordinates=241,78,66,58
+Coordinates=1186,358,58,51
 
 [sbSaveCli]
-Coordinates=674,155,73,58
+Coordinates=293,610,63,51
 
 [rectUF]
-Coordinates=817,724,53,36
+Coordinates=1568,818,46,33
 
 [lblBairro]
-Coordinates=447,232,62,58
+Coordinates=1693,526,56,51
 
 [rectFirstN]
-Coordinates=628,724,71,36
+Coordinates=1290,694,62,33
 
 [lblEndereco]
-Coordinates=0,0,83,58
+Coordinates=165,442,73,51
 
 [lblEmail]
-Coordinates=281,284,60,58
+Coordinates=1607,526,53,51
 
 [rectEndereco]
-Coordinates=529,724,91,36
+Coordinates=1363,610,80,33
 
 [rectBairro]
-Coordinates=296,724,71,36
+Coordinates=377,694,63,33
 
 [edtEndereco]
-Coordinates=716,56,87,58
+Coordinates=188,526,76,51
 
 [Layout5]
-Coordinates=227,724,60,36
+Coordinates=600,694,53,33
 
 [cbSexo]
-Coordinates=364,1,101,146
+Coordinates=985,10,84,123
 
 [DM.QuerySelection]
-Coordinates=375,536,126,36
+Coordinates=375,536,108,33
 Visible=False
 
 [BindSourceDB]
-Coordinates=375,536,114,322
+Coordinates=197,10,95,267
 
 [BindingsList]
-Coordinates=726,573,84,36
+Coordinates=726,573,76,33
 
 [StyleBook]
-Coordinates=368,243,72,36
+Coordinates=368,243,64,33
 
 [lblCliAtualEndereco]
-Coordinates=98,724,127,58
+Coordinates=140,610,112,51
 
 [lblAst5]
-Coordinates=876,760,53,58
+Coordinates=86,442,48,51
 
 [lblAst2]
-Coordinates=724,232,53,58
+Coordinates=1321,442,48,51
 
 [lblCliAtualCadastro]
-Coordinates=998,56,125,58
+Coordinates=1301,10,109,51
 
 [sbEditCli]
-Coordinates=0,0,66,58
+Coordinates=756,610,58,51
 
 [lblAst1]
-Coordinates=876,914,53,58
+Coordinates=1024,358,48,51
 
 [sbDelCli]
-Coordinates=29,724,63,58
+Coordinates=1518,526,55,51
 
 [lblCliAtualTelefones]
-Coordinates=1161,1,129,58
+Coordinates=301,526,113,51
 
 [lblCliAtualNome]
-Coordinates=102,1,106,58
+Coordinates=575,442,93,51
 
 [lblAst3]
-Coordinates=447,380,53,58
+Coordinates=10,358,48,51
 
 [lblCliAtualCidade]
-Coordinates=162,284,113,58
+Coordinates=927,526,99,51
 
 [lblAst4]
-Coordinates=876,837,53,58
+Coordinates=1366,526,48,51
 
 [DM.QueryUpdate]
-Coordinates=256,724,114,300
+Coordinates=337,10,97,249
 
 [lblCliAtualTitle]
-Coordinates=998,133,97,58
+Coordinates=220,358,86,51
 
 [lblCliAtualEmail]
-Coordinates=578,78,105,58
+Coordinates=89,358,92,51
 
 [PrototypeBindSource]
-Coordinates=270,430,143,102
+Coordinates=696,87,120,105
+
+[Image2]
+Coordinates=1103,358,49,51
+
+[Series1]
+Coordinates=102,476,50,33
+
+[ListView2]
+Coordinates=477,10,116,249
+Visible=True
+
+[Series2]
+Coordinates=43,476,50,33
+
+[Line2]
+Coordinates=1012,694,41,33
+
+[LineSeries1]
+Coordinates=286,570,72,33
+
+[Chart2]
+Coordinates=933,694,46,33
+
+[Chart1]
+Coordinates=854,694,46,33
+
+[Line3]
+Coordinates=782,694,41,33
+
+[lbDescLastRec]
+Coordinates=804,358,88,51
+
+[Image3]
+Coordinates=1278,358,49,51
+
+[lblGraphValue]
+Coordinates=0,0,84,51
+
+[rectGraphValues]
+Coordinates=330,278,96,33
+
+[lblGraphMonth]
+Coordinates=103,1,87,51
+
+[FloatAnimation2]
+Coordinates=311,315,95,33
 
