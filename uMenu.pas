@@ -159,6 +159,7 @@ type
     lblGraphValue: TLabel;
     FloatAnimation2: TFloatAnimation;
     LinkListControlToField2: TLinkListControlToField;
+    rectCliDetalhes: TRectangle;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
