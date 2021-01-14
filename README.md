@@ -3,4 +3,4 @@ DPODash é um sistema básico de ERP para laboratórios de prótese dentária qu
 
 Sistema ainda em fase de desenvolvimento.
 
-![Alt text](Preview/Capture-DPODash-13-01-2021.png?raw=true "Preview")
+![Alt text](https://i.ibb.co/4Fqj1L8/Capture-DPODash-13-01-2021.png "Preview")
