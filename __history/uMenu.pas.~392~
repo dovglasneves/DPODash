@@ -167,9 +167,9 @@ type
     lblDetailName: TLabel;
     lblCliCRO: TLabel;
     edtCliCRO: TEdit;
-    rectCliCRO: TRectangle;
+    Rectangle1: TRectangle;
     cbCROUF: TComboBox;
-    rectCliCROuf: TRectangle;
+    Rectangle2: TRectangle;
     lblCliCROuf: TLabel;
     sbSaveDetails: TSpeedButton;
     sbCancelDetails: TSpeedButton;
@@ -177,7 +177,6 @@ type
     ShadowEffect1: TShadowEffect;
     BlurEffect1: TBlurEffect;
     sbVerTodos: TSpeedButton;
-    rectBlockBG: TRectangle;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -328,7 +327,6 @@ frmMain.Width := 980;
 frmMain.Height := 680;
 rectPopupExit.Visible := False;
 rectGraphValues.Visible := False;
-rectBlockBG.Visible := False;
 UpdateLastReg;
 //Posiciona asteriscos em simetria com os labels de título
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
@@ -487,17 +485,14 @@ end;
 
 procedure TfrmMain.sbCancelDetailsClick(Sender: TObject);
 begin
-rectBlockBG.Visible := False;
 rectDetailCli.Visible := False;
 BlurEffect1.Enabled := False;
 end;
 
 procedure TfrmMain.sbDetailsCliClick(Sender: TObject);
 begin
-rectBlockBG.Visible := True;
 rectDetailCli.Visible := True;
 BlurEffect1.Enabled := True;
-lblDetailName.Text := edtNome.Text;
 end;
 
 procedure TfrmMain.TempFillGraphs;

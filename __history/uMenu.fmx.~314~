@@ -660,7 +660,7 @@ object frmMain: TfrmMain
       Size.Width = 978.000000000000000000
       Size.Height = 537.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabPosition = None
       Sizes = (
@@ -682,7 +682,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -1059,7 +1059,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -2799,7 +2799,6 @@ object frmMain: TfrmMain
           Size.Height = 537.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
-          Visible = False
           object rectDetailCli: TRectangle
             Align = Center
             Fill.Color = claWhite

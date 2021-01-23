@@ -660,7 +660,7 @@ object frmMain: TfrmMain
       Size.Width = 978.000000000000000000
       Size.Height = 537.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabPosition = None
       Sizes = (
@@ -682,7 +682,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = True
+        IsSelected = False
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -1059,7 +1059,7 @@ object frmMain: TfrmMain
         CustomIcon = <
           item
           end>
-        IsSelected = False
+        IsSelected = True
         Size.Width = 8.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
@@ -2792,220 +2792,211 @@ object frmMain: TfrmMain
             Enabled = False
           end
         end
-        object rectBlockBG: TRectangle
-          Align = Client
-          Fill.Color = claNull
-          Size.Width = 978.000000000000000000
-          Size.Height = 537.000000000000000000
+        object rectDetailCli: TRectangle
+          Align = Center
+          Fill.Color = claWhite
+          Margins.Left = 5.000000000000000000
+          Size.Width = 500.000000000000000000
+          Size.Height = 172.000000000000000000
           Size.PlatformDefault = False
-          Stroke.Kind = None
-          Visible = False
-          object rectDetailCli: TRectangle
-            Align = Center
-            Fill.Color = claWhite
-            Margins.Left = 5.000000000000000000
-            Size.Width = 500.000000000000000000
-            Size.Height = 172.000000000000000000
+          Stroke.Color = xFFE2E2E2
+          XRadius = 15.000000000000000000
+          YRadius = 15.000000000000000000
+          object rectCliCROuf: TRectangle
+            Fill.Color = xFFF6F6F6
+            Position.X = 430.000000000000000000
+            Position.Y = 80.000000000000000000
+            Size.Width = 51.000000000000000000
+            Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
-            Stroke.Color = xFFE2E2E2
-            XRadius = 15.000000000000000000
-            YRadius = 15.000000000000000000
-            object rectCliCROuf: TRectangle
-              Fill.Color = xFFF6F6F6
-              Position.X = 430.000000000000000000
-              Position.Y = 80.000000000000000000
-              Size.Width = 51.000000000000000000
-              Size.Height = 25.000000000000000000
-              Size.PlatformDefault = False
-              Stroke.Color = xFFB9B9B9
-              XRadius = 6.000000000000000000
-              YRadius = 6.000000000000000000
-            end
-            object rectCliCRO: TRectangle
-              Fill.Color = xFFF6F6F6
-              Position.X = 223.000000000000000000
-              Position.Y = 80.000000000000000000
-              Size.Width = 194.000000000000000000
-              Size.Height = 25.000000000000000000
-              Size.PlatformDefault = False
-              Stroke.Color = xFFB9B9B9
-              XRadius = 6.000000000000000000
-              YRadius = 6.000000000000000000
-            end
-            object rectCliCPF: TRectangle
-              Fill.Color = xFFF6F6F6
-              Position.X = 15.000000000000000000
-              Position.Y = 80.000000000000000000
-              Size.Width = 194.000000000000000000
-              Size.Height = 25.000000000000000000
-              Size.PlatformDefault = False
-              Stroke.Color = xFFB9B9B9
-              XRadius = 6.000000000000000000
-              YRadius = 6.000000000000000000
-            end
-            object lblDetailCliTitle: TLabel
-              Align = Top
-              StyledSettings = [Family, FontColor]
-              Margins.Left = 15.000000000000000000
-              Margins.Top = 15.000000000000000000
-              Margins.Right = 15.000000000000000000
-              Position.X = 15.000000000000000000
-              Position.Y = 15.000000000000000000
-              Size.Width = 470.000000000000000000
-              Size.Height = 17.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 16.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = 'Detalhes do clientes'
-              TabOrder = 0
-            end
-            object edtCliCPF: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              StyleLookup = 'transparentedit'
-              TabOrder = 1
-              MaxLength = 40
-              Position.X = 20.000000000000000000
-              Position.Y = 82.000000000000000000
-              Size.Width = 181.000000000000000000
-              Size.Height = 21.000000000000000000
-              Size.PlatformDefault = False
-              OnExit = FormataCamposCliForm
-            end
-            object lblCliCPF: TLabel
-              AutoSize = True
-              StyledSettings = [Size]
-              Position.X = 21.000000000000000000
-              Position.Y = 64.000000000000000000
-              Size.Width = 20.000000000000000000
-              Size.Height = 15.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Corbel'
-              TextSettings.FontColor = xFF6A6969
-              TextSettings.WordWrap = False
-              Text = 'CPF'
-              TabOrder = 2
-            end
-            object lblDetailName: TLabel
-              Align = Top
-              Margins.Left = 15.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 15.000000000000000000
-              Position.X = 15.000000000000000000
-              Position.Y = 37.000000000000000000
-              Size.Width = 470.000000000000000000
-              Size.Height = 17.000000000000000000
-              Size.PlatformDefault = False
-              Text = '{Nome do Cliente}'
-              TabOrder = 4
-            end
-            object edtCliCRO: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              StyleLookup = 'transparentedit'
-              TabOrder = 5
-              MaxLength = 40
-              Position.X = 228.000000000000000000
-              Position.Y = 82.000000000000000000
-              Size.Width = 181.000000000000000000
-              Size.Height = 21.000000000000000000
-              Size.PlatformDefault = False
-              OnExit = FormataCamposCliForm
-            end
-            object lblCliCRO: TLabel
-              AutoSize = True
-              StyledSettings = [Size]
-              Position.X = 229.000000000000000000
-              Position.Y = 64.000000000000000000
-              Size.Width = 23.000000000000000000
-              Size.Height = 15.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Corbel'
-              TextSettings.FontColor = xFF6A6969
-              TextSettings.WordWrap = False
-              Text = 'CRO'
-              TabOrder = 6
-            end
-            object cbCROUF: TComboBox
-              Items.Strings = (
-                ''
-                'AC'
-                'AL'
-                'AP'
-                'AM'
-                'BA'
-                'CE'
-                'DF'
-                'ES'
-                'GO'
-                'MA'
-                'MT'
-                'MS'
-                'MG'
-                'PA'
-                'PB'
-                'PR'
-                'PE'
-                'PI'
-                'RJ'
-                'RN'
-                'RS'
-                'RO'
-                'RR'
-                'SC'
-                'SP'
-                'SE'
-                'TO')
-              ItemIndex = 0
-              DropDownKind = Custom
-              Position.X = 432.000000000000000000
-              Position.Y = 82.000000000000000000
-              Size.Width = 48.000000000000000000
-              Size.Height = 21.000000000000000000
-              Size.PlatformDefault = False
-              StyleLookup = 'ComboBox1Style1'
-              TabOrder = 8
-            end
-            object lblCliCROuf: TLabel
-              AutoSize = True
-              StyledSettings = [Size]
-              Position.X = 435.000000000000000000
-              Position.Y = 64.000000000000000000
-              Size.Width = 15.000000000000000000
-              Size.Height = 15.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Corbel'
-              TextSettings.FontColor = xFF6A6969
-              TextSettings.WordWrap = False
-              Text = 'UF'
-              TabOrder = 9
-            end
-            object sbSaveDetails: TSpeedButton
-              Cursor = crHandPoint
-              Position.X = 401.000000000000000000
-              Position.Y = 119.000000000000000000
-              Size.Width = 80.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              StyleLookup = 'csSave'
-              Text = 'Save'
-            end
-            object sbCancelDetails: TSpeedButton
-              Cursor = crHandPoint
-              Position.X = 311.000000000000000000
-              Position.Y = 119.000000000000000000
-              Size.Width = 80.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              StyleLookup = 'csCancel'
-              Text = 'Cancel'
-              OnClick = sbCancelDetailsClick
-            end
-            object ShadowEffect1: TShadowEffect
-              Distance = 2.000000000000000000
-              Direction = 45.000000000000000000
-              Softness = 0.300000011920929000
-              Opacity = 0.300000011920929000
-              ShadowColor = claBlack
-            end
+            Stroke.Color = xFFB9B9B9
+            XRadius = 6.000000000000000000
+            YRadius = 6.000000000000000000
+          end
+          object rectCliCRO: TRectangle
+            Fill.Color = xFFF6F6F6
+            Position.X = 223.000000000000000000
+            Position.Y = 80.000000000000000000
+            Size.Width = 194.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFFB9B9B9
+            XRadius = 6.000000000000000000
+            YRadius = 6.000000000000000000
+          end
+          object rectCliCPF: TRectangle
+            Fill.Color = xFFF6F6F6
+            Position.X = 15.000000000000000000
+            Position.Y = 80.000000000000000000
+            Size.Width = 194.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFFB9B9B9
+            XRadius = 6.000000000000000000
+            YRadius = 6.000000000000000000
+          end
+          object lblDetailCliTitle: TLabel
+            Align = Top
+            StyledSettings = [Family, FontColor]
+            Margins.Left = 15.000000000000000000
+            Margins.Top = 15.000000000000000000
+            Margins.Right = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 15.000000000000000000
+            Size.Width = 470.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Detalhes do clientes'
+            TabOrder = 0
+          end
+          object edtCliCPF: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            StyleLookup = 'transparentedit'
+            TabOrder = 1
+            MaxLength = 40
+            Position.X = 20.000000000000000000
+            Position.Y = 82.000000000000000000
+            Size.Width = 181.000000000000000000
+            Size.Height = 21.000000000000000000
+            Size.PlatformDefault = False
+            OnExit = FormataCamposCliForm
+          end
+          object lblCliCPF: TLabel
+            AutoSize = True
+            StyledSettings = [Size]
+            Position.X = 21.000000000000000000
+            Position.Y = 64.000000000000000000
+            Size.Width = 20.000000000000000000
+            Size.Height = 15.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Corbel'
+            TextSettings.FontColor = xFF6A6969
+            TextSettings.WordWrap = False
+            Text = 'CPF'
+            TabOrder = 2
+          end
+          object lblDetailName: TLabel
+            Align = Top
+            Margins.Left = 15.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 15.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 37.000000000000000000
+            Size.Width = 470.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = '{Nome do Cliente}'
+            TabOrder = 4
+          end
+          object edtCliCRO: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            StyleLookup = 'transparentedit'
+            TabOrder = 5
+            MaxLength = 40
+            Position.X = 228.000000000000000000
+            Position.Y = 82.000000000000000000
+            Size.Width = 181.000000000000000000
+            Size.Height = 21.000000000000000000
+            Size.PlatformDefault = False
+            OnExit = FormataCamposCliForm
+          end
+          object lblCliCRO: TLabel
+            AutoSize = True
+            StyledSettings = [Size]
+            Position.X = 229.000000000000000000
+            Position.Y = 64.000000000000000000
+            Size.Width = 23.000000000000000000
+            Size.Height = 15.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Corbel'
+            TextSettings.FontColor = xFF6A6969
+            TextSettings.WordWrap = False
+            Text = 'CRO'
+            TabOrder = 6
+          end
+          object cbCROUF: TComboBox
+            Items.Strings = (
+              ''
+              'AC'
+              'AL'
+              'AP'
+              'AM'
+              'BA'
+              'CE'
+              'DF'
+              'ES'
+              'GO'
+              'MA'
+              'MT'
+              'MS'
+              'MG'
+              'PA'
+              'PB'
+              'PR'
+              'PE'
+              'PI'
+              'RJ'
+              'RN'
+              'RS'
+              'RO'
+              'RR'
+              'SC'
+              'SP'
+              'SE'
+              'TO')
+            ItemIndex = 0
+            DropDownKind = Custom
+            Position.X = 432.000000000000000000
+            Position.Y = 82.000000000000000000
+            Size.Width = 48.000000000000000000
+            Size.Height = 21.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'ComboBox1Style1'
+            TabOrder = 8
+          end
+          object lblCliCROuf: TLabel
+            AutoSize = True
+            StyledSettings = [Size]
+            Position.X = 435.000000000000000000
+            Position.Y = 64.000000000000000000
+            Size.Width = 15.000000000000000000
+            Size.Height = 15.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Corbel'
+            TextSettings.FontColor = xFF6A6969
+            TextSettings.WordWrap = False
+            Text = 'UF'
+            TabOrder = 9
+          end
+          object sbSaveDetails: TSpeedButton
+            Cursor = crHandPoint
+            Position.X = 401.000000000000000000
+            Position.Y = 119.000000000000000000
+            Size.Width = 80.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'csSave'
+            Text = 'Save'
+          end
+          object sbCancelDetails: TSpeedButton
+            Cursor = crHandPoint
+            Position.X = 311.000000000000000000
+            Position.Y = 119.000000000000000000
+            Size.Width = 80.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'csCancel'
+            Text = 'Cancel'
+            OnClick = sbCancelDetailsClick
+          end
+          object ShadowEffect1: TShadowEffect
+            Distance = 2.000000000000000000
+            Direction = 45.000000000000000000
+            Softness = 0.300000011920929000
+            Opacity = 0.300000011920929000
+            ShadowColor = claBlack
           end
         end
       end

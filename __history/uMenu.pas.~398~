@@ -328,7 +328,6 @@ frmMain.Width := 980;
 frmMain.Height := 680;
 rectPopupExit.Visible := False;
 rectGraphValues.Visible := False;
-rectBlockBG.Visible := False;
 UpdateLastReg;
 //Posiciona asteriscos em simetria com os labels de título
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
@@ -487,14 +486,14 @@ end;
 
 procedure TfrmMain.sbCancelDetailsClick(Sender: TObject);
 begin
-rectBlockBG.Visible := False;
+rectBlockBG.Enabled := False;
 rectDetailCli.Visible := False;
 BlurEffect1.Enabled := False;
 end;
 
 procedure TfrmMain.sbDetailsCliClick(Sender: TObject);
 begin
-rectBlockBG.Visible := True;
+rectBlockBG.Enabled := True;
 rectDetailCli.Visible := True;
 BlurEffect1.Enabled := True;
 lblDetailName.Text := edtNome.Text;

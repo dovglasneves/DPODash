@@ -12,7 +12,7 @@ uses
   FMX.Ani, System.iOUtils, Math, DateUtils,
   {$IFDEF MSWINDOWS}
   System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts, FMX.ListBox, SqlTimSt,
-  FMX.ComboEdit, FMX.Menus, FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Effects
+  FMX.ComboEdit, FMX.Menus, FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart
   {$ENDIF};
 
 type
@@ -159,25 +159,7 @@ type
     lblGraphValue: TLabel;
     FloatAnimation2: TFloatAnimation;
     LinkListControlToField2: TLinkListControlToField;
-    rectDetailCli: TRectangle;
-    lblDetailCliTitle: TLabel;
-    edtCliCPF: TEdit;
-    rectCliCPF: TRectangle;
-    lblCliCPF: TLabel;
-    lblDetailName: TLabel;
-    lblCliCRO: TLabel;
-    edtCliCRO: TEdit;
-    rectCliCRO: TRectangle;
-    cbCROUF: TComboBox;
-    rectCliCROuf: TRectangle;
-    lblCliCROuf: TLabel;
-    sbSaveDetails: TSpeedButton;
-    sbCancelDetails: TSpeedButton;
-    sbDetailsCli: TSpeedButton;
-    ShadowEffect1: TShadowEffect;
-    BlurEffect1: TBlurEffect;
-    sbVerTodos: TSpeedButton;
-    rectBlockBG: TRectangle;
+    rectCliDetalhes: TRectangle;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -205,8 +187,6 @@ type
     procedure Chart2ClickSeries(Sender: TCustomChart; Series: TChartSeries; ValueIndex: Integer;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure FloatAnimation2Finish(Sender: TObject);
-    procedure sbCancelDetailsClick(Sender: TObject);
-    procedure sbDetailsCliClick(Sender: TObject);
   private
     { Private declarations }
     procedure TempFillGraphs;
@@ -328,7 +308,6 @@ frmMain.Width := 980;
 frmMain.Height := 680;
 rectPopupExit.Visible := False;
 rectGraphValues.Visible := False;
-rectBlockBG.Visible := False;
 UpdateLastReg;
 //Posiciona asteriscos em simetria com os labels de título
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
@@ -483,21 +462,6 @@ if rectPopupExit.Visible = True then
     PosDiff := PopupPos - rectPopupExit.Width;
     rectPopupExit.Position.X := PosDiff;
   end;
-end;
-
-procedure TfrmMain.sbCancelDetailsClick(Sender: TObject);
-begin
-rectBlockBG.Visible := False;
-rectDetailCli.Visible := False;
-BlurEffect1.Enabled := False;
-end;
-
-procedure TfrmMain.sbDetailsCliClick(Sender: TObject);
-begin
-rectBlockBG.Visible := True;
-rectDetailCli.Visible := True;
-BlurEffect1.Enabled := True;
-lblDetailName.Text := edtNome.Text;
 end;
 
 procedure TfrmMain.TempFillGraphs;
