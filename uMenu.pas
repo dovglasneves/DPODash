@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.DialogService, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.TabControl, FMX.ListView.Types,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, Data.Bind.GenData,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
@@ -191,12 +191,9 @@ type
     Layout8: TLayout;
     Rectangle1: TRectangle;
     Label1: TLabel;
-    Label2: TLabel;
     Rectangle3: TRectangle;
     Label3: TLabel;
     Rectangle4: TRectangle;
-    Label4: TLabel;
-    Rectangle5: TRectangle;
     Label5: TLabel;
     Rectangle6: TRectangle;
     Label6: TLabel;
@@ -208,22 +205,15 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
-    ComboBox1: TComboBox;
     Edit4: TEdit;
-    ComboBox2: TComboBox;
     Edit5: TEdit;
     SpeedButton1: TSpeedButton;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    SpeedButton2: TSpeedButton;
     Layout9: TLayout;
     Label16: TLabel;
     Label17: TLabel;
     Label20: TLabel;
     Label21: TLabel;
+    Label2: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -589,9 +579,12 @@ for i := 0 to 12 do
 end;
 
 procedure TfrmMain.UpdateClientPanel;
+var
+Id: string;
 begin
+  Id := Format('%.3d', [DM.QuerySelectionid.Value]);
   //Popular labels com nome do cliente atual
-  lblCliAtualNome.Text := DM.QuerySelectionnome.Value;
+  lblCliAtualNome.Text := '(' +Id +') ' +DM.QuerySelectionnome.Value;
   lblCliAtualEndereco.Text := 'Endereço: ' +DM.QuerySelectionendereco.Value +' - '
                               +DM.QuerySelectionbairro.Value;
   lblCliAtualCidade.Text := 'Cidade: ' +DM.QuerySelectioncidade.Value +'/' +DM.QuerySelectionuf.Value;

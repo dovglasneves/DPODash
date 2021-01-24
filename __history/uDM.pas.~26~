@@ -57,13 +57,10 @@ uses uMenu, uFunctions;
 {$R *.dfm}
 
 procedure TDM.QuerySelectionAfterScroll(DataSet: TDataSet);
-var
-Id: string;
 begin
 with frmMain do
   begin
-    Id := Format('%.3d', [QuerySelectionid.Value]);
-    lblCliAtualNome.Text := '(' +Id +') ' +QuerySelectionnome.Value;
+    lblCliAtualNome.Text := '(' +QuerySelectionid.Value.ToString +') ' +QuerySelectionnome.Value;
     lblCliAtualEndereco.Text := 'Endereço: ' +QuerySelectionendereco.Value +' - '
                                 +QuerySelectionbairro.Value;
     lblCliAtualCidade.Text := 'Cidade: ' +QuerySelectioncidade.Value +'/' +QuerySelectionuf.Value;
