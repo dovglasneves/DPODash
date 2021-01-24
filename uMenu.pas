@@ -37,8 +37,6 @@ type
     sbUsername: TSpeedButton;
     sbProd: TSpeedButton;
     tbProdutos: TTabItem;
-    rectProBG: TRectangle;
-    lbDescPro: TLabel;
     rectBorder: TRectangle;
     lbSize: TLabel;
     sbNotas: TSpeedButton;
@@ -178,6 +176,54 @@ type
     BlurEffect1: TBlurEffect;
     sbVerTodos: TSpeedButton;
     rectBlockBG: TRectangle;
+    Layout7: TLayout;
+    rectProBG: TRectangle;
+    Layout11: TLayout;
+    Rectangle2: TRectangle;
+    ListView4: TListView;
+    lblProdLast: TLabel;
+    lblProdutosTitle: TLabel;
+    Layout12: TLayout;
+    sbProdDelete: TSpeedButton;
+    sbProdEdit: TSpeedButton;
+    Image4: TImage;
+    Layout10: TLayout;
+    Layout8: TLayout;
+    Rectangle1: TRectangle;
+    Label1: TLabel;
+    Label2: TLabel;
+    Rectangle3: TRectangle;
+    Label3: TLabel;
+    Rectangle4: TRectangle;
+    Label4: TLabel;
+    Rectangle5: TRectangle;
+    Label5: TLabel;
+    Rectangle6: TRectangle;
+    Label6: TLabel;
+    Rectangle7: TRectangle;
+    Label7: TLabel;
+    Rectangle8: TRectangle;
+    Label8: TLabel;
+    Rectangle9: TRectangle;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    ComboBox1: TComboBox;
+    Edit4: TEdit;
+    ComboBox2: TComboBox;
+    Edit5: TEdit;
+    SpeedButton1: TSpeedButton;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    SpeedButton2: TSpeedButton;
+    Layout9: TLayout;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -330,6 +376,10 @@ rectPopupExit.Visible := False;
 rectGraphValues.Visible := False;
 rectBlockBG.Visible := False;
 UpdateLastReg;
+sbSaveCli.TabOrder := 26;
+sbSaveCli.TabStop := True;
+sbDetailsCli.TabOrder := 18;
+sbDetailsCli.TabStop := True;
 //Posiciona asteriscos em simetria com os labels de título
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
 lblAst1.Position.Y := lblFirstN.Position.Y -1;
@@ -462,6 +512,7 @@ or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
         ClearClientForm;
         DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY nome');
         DM.QuerySelection.First;
+        edtNome.SetFocus;
       end;
   end else begin
     MessageDlg('Um ou mais campos obrigatórios não foi preenchido.' +#13
@@ -490,6 +541,7 @@ begin
 rectBlockBG.Visible := False;
 rectDetailCli.Visible := False;
 BlurEffect1.Enabled := False;
+edtEndereco.SetFocus;
 end;
 
 procedure TfrmMain.sbDetailsCliClick(Sender: TObject);
@@ -498,6 +550,7 @@ rectBlockBG.Visible := True;
 rectDetailCli.Visible := True;
 BlurEffect1.Enabled := True;
 lblDetailName.Text := edtNome.Text;
+edtCliCPF.SetFocus;
 end;
 
 procedure TfrmMain.TempFillGraphs;

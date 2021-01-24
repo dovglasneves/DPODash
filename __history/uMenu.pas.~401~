@@ -12,7 +12,7 @@ uses
   FMX.Ani, System.iOUtils, Math, DateUtils,
   {$IFDEF MSWINDOWS}
   System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts, FMX.ListBox, SqlTimSt,
-  FMX.ComboEdit, FMX.Menus, FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart
+  FMX.ComboEdit, FMX.Menus, FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Effects
   {$ENDIF};
 
 type
@@ -154,11 +154,30 @@ type
     Image3: TImage;
     lbDescLastRec: TLabel;
     ListView2: TListView;
-    LinkListControlToField2: TLinkListControlToField;
     rectGraphValues: TRectangle;
     lblGraphMonth: TLabel;
     lblGraphValue: TLabel;
     FloatAnimation2: TFloatAnimation;
+    LinkListControlToField2: TLinkListControlToField;
+    rectDetailCli: TRectangle;
+    lblDetailCliTitle: TLabel;
+    edtCliCPF: TEdit;
+    rectCliCPF: TRectangle;
+    lblCliCPF: TLabel;
+    lblDetailName: TLabel;
+    lblCliCRO: TLabel;
+    edtCliCRO: TEdit;
+    rectCliCRO: TRectangle;
+    cbCROUF: TComboBox;
+    rectCliCROuf: TRectangle;
+    lblCliCROuf: TLabel;
+    sbSaveDetails: TSpeedButton;
+    sbCancelDetails: TSpeedButton;
+    sbDetailsCli: TSpeedButton;
+    ShadowEffect1: TShadowEffect;
+    BlurEffect1: TBlurEffect;
+    sbVerTodos: TSpeedButton;
+    rectBlockBG: TRectangle;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -174,7 +193,7 @@ type
     procedure edtSearchExit(Sender: TObject);
     procedure sbCloseBtnClick(Sender: TObject);
     procedure FormDeactivate(Sender: TObject);
-    procedure rectTitleMouseDown(Sender: TObject; Button: TMouseButton;
+    procedure ArrastaJanela(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
     procedure sbSaveCliClick(Sender: TObject);
     procedure FormataCamposCliForm(Sender: TObject);
@@ -186,6 +205,8 @@ type
     procedure Chart2ClickSeries(Sender: TCustomChart; Series: TChartSeries; ValueIndex: Integer;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure FloatAnimation2Finish(Sender: TObject);
+    procedure sbCancelDetailsClick(Sender: TObject);
+    procedure sbDetailsCliClick(Sender: TObject);
   private
     { Private declarations }
     procedure TempFillGraphs;
@@ -223,6 +244,7 @@ if ValueIndex > 0 then
     rectGraphValues.Position.X := X.ToSingle-(rectGraphValues.Width/2);
     rectGraphValues.Position.Y := Y.ToSingle+(rectGraphValues.Height/2);
     rectGraphValues.Opacity := 1;
+    Application.ProcessMessages;
     rectGraphValues.Visible := True;
   end;
 end;
@@ -306,7 +328,12 @@ frmMain.Width := 980;
 frmMain.Height := 680;
 rectPopupExit.Visible := False;
 rectGraphValues.Visible := False;
+rectBlockBG.Visible := False;
 UpdateLastReg;
+sbSaveCli.TabOrder := 25;
+sbSaveCli.TabStop := True;
+sbDetailsCli.TabOrder := 17;
+sbDetailsCli.TabStop := True;
 //Posiciona asteriscos em simetria com os labels de título
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
 lblAst1.Position.Y := lblFirstN.Position.Y -1;
@@ -320,7 +347,7 @@ lblAst5.Position.X := lblUF.Position.X +lblUF.Width +1;
 lblAst5.Position.Y := lblUF.Position.Y -1;
 end;
 
-procedure TfrmMain.rectTitleMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmMain.ArrastaJanela(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
 Self.StartWindowDrag;
@@ -439,6 +466,7 @@ or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
         ClearClientForm;
         DM.QuerySelection.Open('SELECT * FROM clientes ORDER BY nome');
         DM.QuerySelection.First;
+        edtNome.SetFocus;
       end;
   end else begin
     MessageDlg('Um ou mais campos obrigatórios não foi preenchido.' +#13
@@ -460,6 +488,21 @@ if rectPopupExit.Visible = True then
     PosDiff := PopupPos - rectPopupExit.Width;
     rectPopupExit.Position.X := PosDiff;
   end;
+end;
+
+procedure TfrmMain.sbCancelDetailsClick(Sender: TObject);
+begin
+rectBlockBG.Visible := False;
+rectDetailCli.Visible := False;
+BlurEffect1.Enabled := False;
+end;
+
+procedure TfrmMain.sbDetailsCliClick(Sender: TObject);
+begin
+rectBlockBG.Visible := True;
+rectDetailCli.Visible := True;
+BlurEffect1.Enabled := True;
+lblDetailName.Text := edtNome.Text;
 end;
 
 procedure TfrmMain.TempFillGraphs;
