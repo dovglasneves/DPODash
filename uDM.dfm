@@ -6,10 +6,12 @@ object DM: TDM
     Active = True
     AfterScroll = QuerySelectionAfterScroll
     Connection = FDConn
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
     SQL.Strings = (
       'select * from clientes;')
-    Left = 32
-    Top = 128
+    Left = 112
+    Top = 16
     object QuerySelectionid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -99,10 +101,12 @@ object DM: TDM
     Active = True
     AfterScroll = QuerySelectionAfterScroll
     Connection = FDConn
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
     SQL.Strings = (
       'select * from clientes;')
-    Left = 32
-    Top = 184
+    Left = 112
+    Top = 72
     object FDAutoIncField1: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -168,6 +172,71 @@ object DM: TDM
       AutoGenerateValue = arDefault
       FieldName = 'data_mod'
       Origin = 'data_mod'
+    end
+  end
+  object FDQueryProd: TFDQuery
+    Active = True
+    Connection = FDConn
+    SQL.Strings = (
+      'select* from prod_serv;')
+    Left = 192
+    Top = 16
+    object FDQueryProdid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryProdnome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Required = True
+      Size = 50
+    end
+    object FDQueryProddescricao: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 100
+    end
+    object FDQueryProdvalor: TBCDField
+      Alignment = taCenter
+      FieldName = 'valor'
+      Origin = 'valor'
+      Required = True
+      DisplayFormat = 'R$ 0.00'
+      Precision = 10
+      Size = 2
+    end
+    object FDQueryProdcusto: TBCDField
+      FieldName = 'custo'
+      Origin = 'custo'
+      Required = True
+      DisplayFormat = 'R$ 0.00'
+      Precision = 10
+      Size = 2
+    end
+    object FDQueryProdtaxas: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'taxas'
+      Origin = 'taxas'
+    end
+    object FDQueryProdfornecedor: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'fornecedor'
+      Origin = 'fornecedor'
+      Size = 30
+    end
+    object FDQueryProddata_mod: TSQLTimeStampField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_mod'
+      Origin = 'data_mod'
+    end
+    object FDQueryProdtotal: TBCDField
+      AutoGenerateValue = arDefault
+      FieldName = 'total'
+      Origin = 'total'
+      Precision = 10
+      Size = 2
     end
   end
 end

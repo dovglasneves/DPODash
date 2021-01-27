@@ -38,6 +38,16 @@ type
     WideStringField8: TWideStringField;
     WideStringField9: TWideStringField;
     SQLTimeStampField1: TSQLTimeStampField;
+    FDQueryProd: TFDQuery;
+    FDQueryProdid: TFDAutoIncField;
+    FDQueryProdnome: TWideStringField;
+    FDQueryProddescricao: TWideStringField;
+    FDQueryProdvalor: TBCDField;
+    FDQueryProdcusto: TBCDField;
+    FDQueryProdtaxas: TFloatField;
+    FDQueryProdfornecedor: TWideStringField;
+    FDQueryProddata_mod: TSQLTimeStampField;
+    FDQueryProdtotal: TBCDField;
     procedure QuerySelectionAfterScroll(DataSet: TDataSet);
   private
     { Private declarations }
