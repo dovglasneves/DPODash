@@ -47,6 +47,7 @@ type
     { Private declarations }
     Login, HashMD5: string;
     AcessLevel: integer;
+    InitialL, User, Mail: string;
   public
     { Public declarations }
   end;
@@ -95,7 +96,6 @@ end;
 
 procedure TfrmLogon.sbLoginClick(Sender: TObject);
 var
-InitialL, User, Mail: string;
 SizeDiff: Single;
 begin
 try
