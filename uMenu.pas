@@ -9,10 +9,11 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, Data.Bind.GenData,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.ObjectScope, FMX.ListView,
-  FMX.Ani, System.iOUtils, Math, DateUtils,
+  FMX.Ani, System.iOUtils, Math, DateUtils, StrUtils,
   {$IFDEF MSWINDOWS}
   System.Win.Registry, FMX.Edit, Data.Bind.DBScope, FMX.Layouts, FMX.ListBox, SqlTimSt,
-  FMX.ComboEdit, FMX.Menus, FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Effects
+  FMX.ComboEdit, FMX.Menus, FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Effects,
+  Character
   {$ENDIF};
 
 type
@@ -90,7 +91,7 @@ type
     Layout4: TLayout;
     rectClientesList: TRectangle;
     Text1: TText;
-    ListView1: TListView;
+    lvClientes: TListView;
     LinkListControlToField1: TLinkListControlToField;
     lblListDescCli: TLabel;
     rectInsertCli: TRectangle;
@@ -169,7 +170,7 @@ type
     cbCROUF: TComboBox;
     rectCliCROuf: TRectangle;
     lblCliCROuf: TLabel;
-    sbSaveDetails: TSpeedButton;
+    sbConfirmDetails: TSpeedButton;
     sbCancelDetails: TSpeedButton;
     sbDetailsCli: TSpeedButton;
     ShadowEffect1: TShadowEffect;
@@ -180,7 +181,7 @@ type
     rectProBG: TRectangle;
     Layout11: TLayout;
     Rectangle2: TRectangle;
-    ListView4: TListView;
+    lvProdutos: TListView;
     lblProdLast: TLabel;
     lblProdutosTitle: TLabel;
     Layout12: TLayout;
@@ -202,18 +203,23 @@ type
     Rectangle8: TRectangle;
     Label8: TLabel;
     Rectangle9: TRectangle;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    Edit5: TEdit;
-    SpeedButton1: TSpeedButton;
+    edtProdNome: TEdit;
+    edtProdDesc: TEdit;
+    edtProdPreco: TEdit;
+    edtProdCusto: TEdit;
+    edtProdFornecedor: TEdit;
+    sbSaveProd: TSpeedButton;
     Layout9: TLayout;
     Label16: TLabel;
-    Label17: TLabel;
-    Label20: TLabel;
-    Label21: TLabel;
+    lblNomeProd: TLabel;
+    lblDescProd: TLabel;
     Label2: TLabel;
+    lblFornecedor: TLabel;
+    lblCusto: TLabel;
+    lblPreco: TLabel;
+    Image5: TImage;
+    BindSourceDB1: TBindSourceDB;
+    LinkListControlToField3: TLinkListControlToField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbDashClick(Sender: TObject);
@@ -260,7 +266,7 @@ var
 
 implementation
 
-uses uFunctions, uChart, uDM;
+uses uFunctions, uChart, uDM, uLogon, uAutoCompleteCBox;
 
 {$R *.fmx}
 
@@ -291,12 +297,12 @@ begin
 edtNome.Text := EmptyStr;
 edtEndereco.Text := EmptyStr;
 edtBairro.Text := EmptyStr;
-edtCidade.Text := EmptyStr;
+edtCidade.Text := 'Juiz de Fora';
 edtEmail.Text := EmptyStr;
 edtTelefone.Text := EmptyStr;
 edtCelular.Text := EmptyStr;
 cbSexo.ItemIndex := -1;
-cbUF.ItemIndex := -1;
+cbUF.ItemIndex := 13;
 end;
 
 procedure TfrmMain.FloatAnimation2Finish(Sender: TObject);
@@ -316,11 +322,11 @@ end;
 procedure TfrmMain.edtCelularKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
   Shift: TShiftState);
 begin
-if not (CharInSet(KeyChar,['0'..'9']))then
-begin
-  Key := 0;
-  KeyChar := #0;
-end;
+if (IsNumber(KeyChar) = False) and (IsControl(KeyChar) = False) then
+  begin
+    Key := 0;
+    KeyChar := #0;
+  end;
 end;
 
 procedure TfrmMain.edtSearchEnter(Sender: TObject);
@@ -340,11 +346,11 @@ end;
 procedure TfrmMain.edtTelefoneKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
   Shift: TShiftState);
 begin
-if not (CharInSet(KeyChar,['0'..'9']))then
-begin
-  Key := 0;
-  KeyChar := #0;
-end;
+if (IsNumber(KeyChar) = False) and (IsControl(KeyChar) = False) then
+  begin
+    Key := 0;
+    KeyChar := #0;
+  end;
 end;
 
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -360,16 +366,21 @@ end;
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
 TempFillGraphs;
+UpdateLastReg;
+
+//Define valores default para os objetos
 frmMain.Width := 980;
 frmMain.Height := 680;
 rectPopupExit.Visible := False;
 rectGraphValues.Visible := False;
 rectBlockBG.Visible := False;
-UpdateLastReg;
+
+//Ajusta ordem dos botões no formulário (Cad. de Clientes)
 sbSaveCli.TabOrder := 26;
 sbSaveCli.TabStop := True;
 sbDetailsCli.TabOrder := 18;
 sbDetailsCli.TabStop := True;
+
 //Posiciona asteriscos em simetria com os labels de título
 lblAst1.Position.X := lblFirstN.Position.X +lblFirstN.Width +1;
 lblAst1.Position.Y := lblFirstN.Position.Y -1;
@@ -445,7 +456,7 @@ end;
 procedure TfrmMain.sbDelCliClick(Sender: TObject);
 begin
 //Verificar se há cliente selecionado e exibe mensagem de confirmação de exclusão
-if ListView1.Selected.Index > -1 then
+if lvClientes.Selected.Index > -1 then
   if MessageDlg('Deseja mesmo excluir o cadastro selecionado?', TMsgDlgType.mtConfirmation,
   [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0) = mrYes then
     begin
@@ -480,12 +491,13 @@ if (Trim(edtNome.Text) <> EmptyStr) or (Trim(edtEndereco.Text) <> EmptyStr)
 or (Trim(edtBairro.Text) <> EmptyStr) or (Trim(edtCidade.Text) <> EmptyStr) then
   begin
   // Verifica duplicidade de cadastro e pergunta se o usuário deseja inserir mesmo assim
-    if VerificaEmail(edtEmail.Text) = False then
-      begin
-        MessageDlg('O valor digitado no campo email é inválido.', TMsgDlgType.mtError,
-                [TMsgDlgBtn.mbOK], 0);
-        Abort
-      end;
+    if (Trim(edtEmail.Text) <> EmptyStr) then
+      if VerificaEmail(edtEmail.Text) = False then
+        begin
+          MessageDlg('O valor digitado no campo email é inválido.', TMsgDlgType.mtError,
+                  [TMsgDlgBtn.mbOK], 0);
+          Abort
+        end;
     if VerificaDuplicidade(edtNome.Text, DM.QueryUpdate) = True then
       begin
         if MessageDlg('Um cliente com o nome informado já consta cadastrado.' +#13
