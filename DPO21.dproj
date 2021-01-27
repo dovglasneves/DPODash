@@ -397,6 +397,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="uFunctions.pas"/>
+        <DCCReference Include="uAutoCompleteCBox.pas"/>
         <RcItem Include="dpo-dash-logo.ico">
             <ResourceType>ICON</ResourceType>
             <ResourceId>Icon_1</ResourceId>

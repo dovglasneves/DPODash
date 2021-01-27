@@ -8,8 +8,7 @@ uses
   uLogon in 'uLogon.pas' {frmLogon},
   uMenu in 'uMenu.pas' {frmMain},
   uDM in 'uDM.pas' {DM: TDataModule},
-  uFunctions in 'uFunctions.pas',
-  uAutoCompleteCBox in 'uAutoCompleteCBox.pas';
+  uFunctions in 'uFunctions.pas';
 
 {$R *.res}
 
