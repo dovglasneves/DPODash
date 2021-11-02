@@ -3,12 +3,12 @@
 	<Transactions>
     <Transaction>2020/12/15 06:33:06.000.142,=C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/12/16 20:06:40.000.919,=C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/12/16 20:07:15.000.260,E:\Coding\Delphi\DPO 2.1 FMX\uLogon.fmx=C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
-    <Transaction>2020/12/16 20:07:15.000.260,E:\Coding\Delphi\DPO 2.1 FMX\uLogon.pas=C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/12/16 20:07:21.000.120,E:\Coding\Delphi\DPO 2.1 FMX\DPO21.dproj=C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/12/16 20:07:15.000.260,C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=E:\Coding\Delphi\DPO 2.1 FMX\uLogon.pas</Transaction>
+    <Transaction>2020/12/16 20:07:15.000.260,C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.fmx=E:\Coding\Delphi\DPO 2.1 FMX\uLogon.fmx</Transaction>
+    <Transaction>2020/12/16 20:07:21.000.120,C:\Users\dougl\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=E:\Coding\Delphi\DPO 2.1 FMX\DPO21.dproj</Transaction>
     <Transaction>2020/12/17 19:52:14.000.470,=E:\Coding\Delphi\DPO 2.1 FMX\Unit1.pas</Transaction>
-    <Transaction>2020/12/17 19:52:28.000.950,E:\Coding\Delphi\DPO 2.1 FMX\uMenu.pas=E:\Coding\Delphi\DPO 2.1 FMX\Unit1.pas</Transaction>
-    <Transaction>2020/12/17 19:52:28.000.950,E:\Coding\Delphi\DPO 2.1 FMX\uMenu.fmx=E:\Coding\Delphi\DPO 2.1 FMX\Unit1.fmx</Transaction>
+    <Transaction>2020/12/17 19:52:28.000.950,E:\Coding\Delphi\DPO 2.1 FMX\Unit1.fmx=E:\Coding\Delphi\DPO 2.1 FMX\uMenu.fmx</Transaction>
+    <Transaction>2020/12/17 19:52:28.000.950,E:\Coding\Delphi\DPO 2.1 FMX\Unit1.pas=E:\Coding\Delphi\DPO 2.1 FMX\uMenu.pas</Transaction>
     <Transaction>2020/12/21 02:19:48.000.959,=E:\Coding\Delphi\DPODash\index.html</Transaction>
     <Transaction>2020/12/21 02:20:03.000.400,=E:\Coding\Delphi\DPODash\js\Chart.min.js</Transaction>
     <Transaction>2020/12/21 02:24:51.000.310,E:\Coding\Delphi\DPODash\index.html=</Transaction>
@@ -17,19 +17,19 @@
     <Transaction>2020/12/21 03:03:05.000.565,=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
     <Transaction>2020/12/21 03:12:03.000.505,=E:\Coding\Delphi\DPODash\uChart.pas</Transaction>
     <Transaction>2020/12/21 12:56:57.000.751,=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
-    <Transaction>2020/12/21 12:57:15.000.161,E:\Coding\Delphi\DPODash\uDM.pas=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
-    <Transaction>2020/12/21 12:57:15.000.161,E:\Coding\Delphi\DPODash\uDM.dfm=E:\Coding\Delphi\DPODash\Unit1.dfm</Transaction>
+    <Transaction>2020/12/21 12:57:15.000.161,E:\Coding\Delphi\DPODash\Unit1.pas=E:\Coding\Delphi\DPODash\uDM.pas</Transaction>
+    <Transaction>2020/12/21 12:57:15.000.161,E:\Coding\Delphi\DPODash\Unit1.dfm=E:\Coding\Delphi\DPODash\uDM.dfm</Transaction>
     <Transaction>2021/01/09 20:01:46.000.208,=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
-    <Transaction>2021/01/09 20:03:23.000.727,E:\Coding\Delphi\DPODash\uFunctions.pas=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
+    <Transaction>2021/01/09 20:03:23.000.727,E:\Coding\Delphi\DPODash\Unit1.pas=E:\Coding\Delphi\DPODash\uFunctions.pas</Transaction>
     <Transaction>2021/01/09 20:19:18.000.015,E:\Coding\Delphi\DPODash\uFunctions.pas=</Transaction>
     <Transaction>2021/01/09 20:19:53.000.153,=E:\Coding\Delphi\DPODash\uFunctions.pas</Transaction>
     <Transaction>2021/01/10 23:08:34.000.108,=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
-    <Transaction>2021/01/10 23:08:45.000.345,E:\Coding\Delphi\DPODash\uComboBox.pas=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
+    <Transaction>2021/01/10 23:08:45.000.345,E:\Coding\Delphi\DPODash\Unit1.pas=E:\Coding\Delphi\DPODash\uComboBox.pas</Transaction>
     <Transaction>2021/01/10 23:39:44.000.332,E:\Coding\Delphi\DPODash\uComboBox.pas=</Transaction>
     <Transaction>2021/01/11 23:37:41.000.297,=E:\Coding\Delphi\DPODash\dpo-dash-logo.ico</Transaction>
     <Transaction>2021/01/13 01:48:21.000.316,E:\Coding\Delphi\DPODash\uChart.pas=</Transaction>
     <Transaction>2021/01/24 19:05:53.000.016,=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
-    <Transaction>2021/01/24 19:06:44.000.940,E:\Coding\Delphi\DPODash\uAutoCompleteCBox.pas=E:\Coding\Delphi\DPODash\Unit1.pas</Transaction>
+    <Transaction>2021/01/24 19:06:44.000.940,E:\Coding\Delphi\DPODash\Unit1.pas=E:\Coding\Delphi\DPODash\uAutoCompleteCBox.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile iOSSimulator="iPhone5"/>

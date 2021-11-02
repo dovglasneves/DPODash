@@ -3,7 +3,6 @@ object DM: TDM
   Height = 304
   Width = 398
   object QuerySelection: TFDQuery
-    Active = True
     AfterScroll = QuerySelectionAfterScroll
     Connection = FDConn
     ResourceOptions.AssignedValues = [rvSilentMode]
@@ -87,18 +86,16 @@ object DM: TDM
       'CharacterSet=utf8'
       'Password=615147Dnb*'
       'DriverID=MySQL')
-    Connected = True
     LoginPrompt = False
     Left = 32
     Top = 16
   end
   object MySQLDriverLink: TFDPhysMySQLDriverLink
-    VendorLib = 'C:\Program Files (x86)\Embarcadero\Studio\20.0\bin\libmysql.dll'
+    VendorLib = 'D:\Coding\Delphi\DPODash\libmysql.dll'
     Left = 32
     Top = 72
   end
   object QueryUpdate: TFDQuery
-    Active = True
     AfterScroll = QuerySelectionAfterScroll
     Connection = FDConn
     ResourceOptions.AssignedValues = [rvSilentMode]
@@ -175,7 +172,6 @@ object DM: TDM
     end
   end
   object FDQueryProd: TFDQuery
-    Active = True
     Connection = FDConn
     SQL.Strings = (
       'select* from prod_serv;')
@@ -185,6 +181,7 @@ object DM: TDM
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQueryProdnome: TWideStringField
       FieldName = 'nome'

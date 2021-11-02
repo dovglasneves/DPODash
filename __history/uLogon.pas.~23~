@@ -41,10 +41,13 @@ type
       Shift: TShiftState);
     procedure edtPassKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure img_bgMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
+      Y: Single);
   private
     { Private declarations }
     Login, HashMD5: string;
     AcessLevel: integer;
+    InitialL, User, Mail: string;
   public
     { Public declarations }
   end;
@@ -85,14 +88,22 @@ AcessLevel := 0;
 edtLogin.SetFocus;
 end;
 
+procedure TfrmLogon.img_bgMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
+  Y: Single);
+begin
+Self.StartWindowDrag;
+end;
+
 procedure TfrmLogon.sbLoginClick(Sender: TObject);
 var
-InitialL, User, Mail: string;
 SizeDiff: Single;
 begin
-
 try
-  FDConnection.Connected := True;
+  try
+    FDConnection.Connected := True;
+  except
+    MessageDlg('Ocorreu um erro durante a execução', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
+  end;
   if (Trim(edtLogin.Text)=EmptyStr) or (Trim(edtPass.Text)=EmptyStr) then
     begin
       MessageDlg('Os campos login e/ou senha não podem estar vazios.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
@@ -147,7 +158,7 @@ try
 finally
   FDConnection.Connected := False;
   frmMain.Parent := Self;
-  Application.FormDestroyed(frmLogon);
+  Application.MainForm := frmMain;
   frmLogon.Close;
 end;
 end;

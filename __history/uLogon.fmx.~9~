@@ -2907,7 +2907,7 @@ object frmLogon: TfrmLogon
     Top = 24
   end
   object MySQLDriverLink: TFDPhysMySQLDriverLink
-    VendorLib = 'D:\Coding\Delphi\DPODash\libmysql.dll'
+    VendorLib = 'C:\Program Files (x86)\Embarcadero\Studio\20.0\bin\libmysql.dll'
     Left = 32
     Top = 80
   end

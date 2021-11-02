@@ -99,7 +99,13 @@ var
 SizeDiff: Single;
 begin
 try
-  FDConnection.Connected := True;
+  try
+    FDConnection.Connected := True;
+  except
+    MessageDlg('Ocorreu um erro durante a execução', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
+    FDConnection.Connected := False;
+    Abort;
+  end;
   if (Trim(edtLogin.Text)=EmptyStr) or (Trim(edtPass.Text)=EmptyStr) then
     begin
       MessageDlg('Os campos login e/ou senha não podem estar vazios.', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);

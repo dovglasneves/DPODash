@@ -2,76 +2,77 @@ object DM: TDM
   OldCreateOrder = False
   Height = 304
   Width = 398
-  object QueryCli: TFDQuery
-    Active = True
-    AfterScroll = QueryCliAfterScroll
+  object QuerySelection: TFDQuery
+    AfterScroll = QuerySelectionAfterScroll
     Connection = FDConn
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
     SQL.Strings = (
       'select * from clientes;')
-    Left = 32
-    Top = 128
-    object QueryCliid: TFDAutoIncField
+    Left = 112
+    Top = 16
+    object QuerySelectionid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
       ReadOnly = True
     end
-    object QueryClinome: TWideStringField
+    object QuerySelectionnome: TWideStringField
       FieldName = 'nome'
       Origin = 'nome'
       Required = True
       Size = 40
     end
-    object QueryClisexo: TWideStringField
+    object QuerySelectionsexo: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'sexo'
       Origin = 'sexo'
       FixedChar = True
       Size = 2
     end
-    object QueryCliendereco: TWideStringField
+    object QuerySelectionendereco: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'endereco'
       Origin = 'endereco'
       Size = 40
     end
-    object QueryClibairro: TWideStringField
+    object QuerySelectionbairro: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'bairro'
       Origin = 'bairro'
       Size = 10
     end
-    object QueryClicidade: TWideStringField
+    object QuerySelectioncidade: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'cidade'
       Origin = 'cidade'
     end
-    object QueryCliuf: TWideStringField
+    object QuerySelectionuf: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'uf'
       Origin = 'uf'
       FixedChar = True
       Size = 2
     end
-    object QueryCliemail: TWideStringField
+    object QuerySelectionemail: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'email'
       Origin = 'email'
       Size = 80
     end
-    object QueryClitelefone: TWideStringField
+    object QuerySelectiontelefone: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'telefone'
       Origin = 'telefone'
       Size = 14
     end
-    object QueryClicelular: TWideStringField
+    object QuerySelectioncelular: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'celular'
       Origin = 'celular'
       Size = 14
     end
-    object QueryClidata_mod: TSQLTimeStampField
+    object QuerySelectiondata_mod: TSQLTimeStampField
       AutoGenerateValue = arDefault
       FieldName = 'data_mod'
       Origin = 'data_mod'
@@ -85,21 +86,24 @@ object DM: TDM
       'CharacterSet=utf8'
       'Password=615147Dnb*'
       'DriverID=MySQL')
-    Connected = True
     LoginPrompt = False
     Left = 32
     Top = 16
   end
   object MySQLDriverLink: TFDPhysMySQLDriverLink
-    VendorLib = 'C:\Program Files (x86)\Embarcadero\Studio\20.0\bin\libmysql.dll'
+    VendorLib = 'D:\Coding\Delphi\DPODash\libmysql.dll'
     Left = 32
     Top = 72
   end
   object QueryUpdate: TFDQuery
-    AfterScroll = QueryCliAfterScroll
+    AfterScroll = QuerySelectionAfterScroll
     Connection = FDConn
-    Left = 32
-    Top = 184
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    SQL.Strings = (
+      'select * from clientes;')
+    Left = 112
+    Top = 72
     object FDAutoIncField1: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -165,6 +169,71 @@ object DM: TDM
       AutoGenerateValue = arDefault
       FieldName = 'data_mod'
       Origin = 'data_mod'
+    end
+  end
+  object FDQueryProd: TFDQuery
+    Connection = FDConn
+    SQL.Strings = (
+      'select* from prod_serv;')
+    Left = 192
+    Top = 16
+    object FDQueryProdid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQueryProdnome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Required = True
+      Size = 50
+    end
+    object FDQueryProddescricao: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 100
+    end
+    object FDQueryProdvalor: TBCDField
+      Alignment = taCenter
+      FieldName = 'valor'
+      Origin = 'valor'
+      Required = True
+      DisplayFormat = 'R$ 0.00'
+      Precision = 10
+      Size = 2
+    end
+    object FDQueryProdcusto: TBCDField
+      FieldName = 'custo'
+      Origin = 'custo'
+      Required = True
+      DisplayFormat = 'R$ 0.00'
+      Precision = 10
+      Size = 2
+    end
+    object FDQueryProdtaxas: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'taxas'
+      Origin = 'taxas'
+    end
+    object FDQueryProdfornecedor: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'fornecedor'
+      Origin = 'fornecedor'
+      Size = 30
+    end
+    object FDQueryProddata_mod: TSQLTimeStampField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_mod'
+      Origin = 'data_mod'
+    end
+    object FDQueryProdtotal: TBCDField
+      AutoGenerateValue = arDefault
+      FieldName = 'total'
+      Origin = 'total'
+      Precision = 10
+      Size = 2
     end
   end
 end
